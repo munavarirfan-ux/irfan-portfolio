@@ -17,6 +17,12 @@ const serifDisplay = Newsreader({
 export const metadata: Metadata = {
   title: 'Irfan | Portfolio',
   description: 'Designing systems that scale. Crafting clarity in complexity.',
+  icons: {
+    icon: [
+      { url: '/favicon-light.svg', media: '(prefers-color-scheme: light)' },
+      { url: '/favicon-dark.svg', media: '(prefers-color-scheme: dark)' },
+    ],
+  },
 }
 
 export default function RootLayout({

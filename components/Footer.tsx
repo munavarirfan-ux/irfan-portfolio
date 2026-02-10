@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import HeroBackground from '@/components/HeroBackground'
 import HeroParticles from '@/components/HeroParticles'
 
@@ -25,9 +26,29 @@ export default function Footer() {
           transition={{ duration: prefersReducedMotion ? 0 : 0.6, ease: 'easeOut' }}
           className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8 sm:gap-6 pb-10 sm:pb-12 md:pb-14"
         >
-          <h2 className="font-serif-display text-l sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight footer-title-gradient">
-            Quiet Confidence
-          </h2>
+          <div className="flex items-center gap-3 sm:gap-4">
+            <a
+              href="#hero"
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }}
+              className="relative w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 shrink-0 flex items-center justify-center rounded transition-opacity hover:opacity-80"
+              aria-label="Home"
+            >
+              <Image
+                src="/favicon-dark.svg"
+                alt=""
+                width={56}
+                height={56}
+                className="w-full h-full object-contain"
+                aria-hidden
+              />
+            </a>
+            <h2 className="font-serif-display text-l sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight footer-title-gradient">
+              Quiet Confidence
+            </h2>
+          </div>
           <a
             href="/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf"
             download

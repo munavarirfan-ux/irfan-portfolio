@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useLayoutEffect } from 'react'
+import Image from 'next/image'
 
 const NAV_HEIGHT = 72
 
@@ -55,7 +56,30 @@ export default function FixedNav() {
           <div className="max-w-content mx-auto">
             <div className={`rounded-xl px-6 py-4 sm:px-7 sm:py-4 md:px-10 md:py-4 transition-colors duration-200 ${overLightBg ? 'nav-liquid-glass-light' : 'nav-liquid-glass'}`}>
               <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-1.5 min-w-0">
+                <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                  <button
+                    type="button"
+                    onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                    className="relative w-10 h-10 sm:w-11 sm:h-11 shrink-0 flex items-center justify-center rounded transition-opacity hover:opacity-80"
+                    aria-label="Home"
+                  >
+                    <Image
+                      src="/favicon-light.svg"
+                      alt=""
+                      width={44}
+                      height={44}
+                      className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-200 ${overLightBg ? 'opacity-100' : 'opacity-0'}`}
+                      aria-hidden
+                    />
+                    <Image
+                      src="/favicon-dark.svg"
+                      alt=""
+                      width={44}
+                      height={44}
+                      className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-200 ${!overLightBg ? 'opacity-100' : 'opacity-0'}`}
+                      aria-hidden
+                    />
+                  </button>
                   <button
                     type="button"
                     className="md:hidden flex flex-col gap-1.5 p-2 -ml-2 shrink-0 transition-colors duration-200"
