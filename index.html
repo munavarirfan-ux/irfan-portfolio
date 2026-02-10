@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Irfan's Portfolio">
+    <title>Irfan | Portfolio</title>
+    <link rel="stylesheet" href="style_v2.css">
+    <style>
+        /* Embed critical CSS to ensure black background loads immediately */
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation (Image 8) -->
+    <nav class="nav-bar">
+        <div class="nav-left">Munavar Irfan Alisha</div>
+        <div class="nav-center">
+            <a href="#work">Works</a>
+            <a href="#clarity">Capabilities</a>
+            <a href="#philosophy">About</a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="btn-resume">Resume</a>
+        </div>
+    </nav>
+
+    <div class="page" id="page">
+        <!-- HERO SECTION (Image 8) -->
+        <section id="hero" class="section hero">
+            <div class="hero-inner">
+                <canvas id="particles"></canvas>
+
+                <div class="hero-content">
+                    <!-- Pill -->
+                    <div class="hero-pill-container hero-enter">
+                        <div class="hero-pill">Product Designer</div>
+                    </div>
+
+                    <!-- Headline -->
+                    <h1 class="hero-title hero-enter-2">
+                        <span class="word-orange">Desigining
+                            
+                        </span>
+                        <span class="word-purple">systems</span>
+                        <span class="word-pink">that</span>
+                        <span class="word-italic-white">scale</span>
+                        <br>
+                        <span class="word-red">Crafting</span>
+                        <span class="word-blue">clarity</span>
+                        <span class="word-cyan">in</span>
+                        <span class="word-italic-white">complexity</span>
+                    </h1>
+                </div>
+
+                <!-- Bottom Bar (Image 8) -->
+                <div class="hero-bottom-bar hero-enter-3">
+                    <div class="social-links">
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Behance</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                    <div class="scroll-ind">
+                        Scroll To Explore
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="section work">
+            <div class="work-inner">
+                <header class="work-head">
+                    <h2 class="section-title reveal">Selected Work</h2>
+                    <p class="section-subtitle reveal">3 shipped case studies. More on request.</p>
+                </header>
+
+                <div class="work-carousel" aria-label="Selected work carousel">
+                    <!-- Removed arrows as per minimal design request, or kept subtle if needed. User image 2 shows no arrows visible on the cards explicitly, but maybe on hover. Keeping structure but simplifying content -->
+                    <div class="work-rail" id="workRail">
+                        <!-- Card 1: DropAR -->
+                        <article class="work-card-minimal" tabindex="0">
+                            <div class="work-visual-minimal media-drop-ar"></div>
+                            <div class="work-meta-minimal">
+                                <span class="work-category">Community & Health</span>
+                                <h3 class="work-title-minimal">DropAR</h3>
+                                <p class="work-desc-minimal">Reimagining last mile delivery through Augmented Reality
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Card 2: Ziggy -->
+                        <article class="work-card-minimal" tabindex="0">
+                            <div class="work-visual-minimal media-ziggy"></div>
+                            <div class="work-meta-minimal">
+                                <span class="work-category">Community & Health</span>
+                                <h3 class="work-title-minimal">Ziggy</h3>
+                                <p class="work-desc-minimal">Conversational UI, 3D Design & Branding for a voice-first
+                                    device</p>
+                            </div>
+                        </article>
+
+                        <!-- Card 3: DropAR (Repeated for demo as per previous code) -->
+                        <article class="work-card-minimal" tabindex="0">
+                            <div class="work-visual-minimal media-drop-ar-2"></div>
+                            <div class="work-meta-minimal">
+                                <span class="work-category">Community & Health</span>
+                                <h3 class="work-title-minimal">DropAR</h3>
+                                <p class="work-desc-minimal">Reimagining last mile delivery through Augmented Reality
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="work-dots" id="workDots" aria-label="Carousel pagination"></div>
+            </div>
+        </section>
+
+        <section id="clarity" class="section clarity">
+            <div class="clarity-inner">
+                <header class="clarity-head">
+                    <h2 class="section-title">Architectural<br><span class="serif-italic">Clarity</span></h2>
+                    <div class="clarity-head-desc">
+                        <p>Systems thinking and modular foundations.</p>
+                    </div>
+                </header>
+
+                <div class="bento-grid">
+                    <!-- Card 1: Systems (Left) -->
+                    <div class="bento-group card-left">
+                        <div class="bento-visual visual-systems">
+                            <!-- Abstract System Nodes -->
+                            <div class="sys-node" style="top:25%; left:25%"></div>
+                            <div class="sys-node" style="top:50%; left:50%"></div>
+                            <div class="sys-node" style="top:75%; left:75%"></div>
+                        </div>
+                        <div class="bento-meta">
+                            <h3>Systems Architecture</h3>
+                            <p>Designing scalable foundations and interconnected frameworks for enterprise-grade
+                                ecosystems. Our approach prioritizes structural integrity over transient trends.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Clarity (Right, Staggered) -->
+                    <div class="bento-group card-right">
+                        <div class="bento-visual visual-clarity"></div>
+                        <div class="bento-meta">
+                            <h3>Clarity</h3>
+                            <p>Distilling complexity into intuitive, frictionless experiences. We find beauty in the
+                                absence of noise, crafting paths of least resistance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Velocity (Left) -->
+                    <div class="bento-group card-left">
+                        <div class="bento-visual visual-velocity"></div>
+                        <div class="bento-meta">
+                            <h3>Velocity</h3>
+                            <p>Accelerating delivery through modular thinking and automation. Speed is a byproduct of a
+                                well-oiled system, not a sacrifice of quality.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Scale (Right) -->
+                    <div class="bento-group card-right">
+                        <div class="bento-visual visual-scale"></div>
+                        <div class="bento-meta">
+                            <h3>Scale</h3>
+                            <p>Built for millions, designed with the individual in mind. From the macro-architecture to
+                                the micro-interaction, scale is managed with precision.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Craft (Left/Full?) Image 5 shows it Left -->
+                    <div class="bento-group card-left">
+                        <div class="bento-visual visual-craft"></div>
+                        <div class="bento-meta">
+                            <h3>Craft</h3>
+                            <p>Precision in every interaction. We believe that excellence is found in the final five
+                                percent—the subtle details that define the user experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="note-content">
+                <h3 class="note-title">About</h3>
+                <p class="note-text">Building digital products for over 10 years. Specializing in
+                    Design
+                    Systems and UI Engineering. Creating tools that empower people.</p>
+                <p class="note-text small">Strategy, Team Leading, and User Research. Always
+                    learning.</p>
+            </div>
+    </div>
+    <div class="sticky-decoration heart"></div>
+    <div class="sticky-decoration star"></div>
+    </div>
+    </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <h2 class="footer-title">Quiet Confidence</h2>
+            <div class="footer-bottom">
+                <nav class="footer-nav">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Behance</a>
+                    <a href="#">Instagram</a>
+                </nav>
+                <button class="resume-btn">The entire Resume</button>
+                <span class="copyright">+91 1234567890</span>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="particles.js"></script>
+    <script src="scroll.js"></script>
+    <script>
+        // Subtle Cursor-Aware Background
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            // Move background/gradient subtly
+            // Assuming .hero-title background or body background can shift
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPosition = `${50 + (x * 2)}% ${50 + (y * 2)}%`;
+            }
+        });
+
+        // Entrance Animation Logic (Inline)
+        window.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                document.getElementById("heroEnter")?.classList.add("is-in");
+            }, 100);
+        });
+
+
+    </script>
+</body>
+
+</html>

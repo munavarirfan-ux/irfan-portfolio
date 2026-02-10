@@ -1,0 +1,478 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  /* Symmetric spacing – same horizontal padding and max-width site-wide */
+  --section-px: 1.5rem;
+  --section-py: 5rem;
+  --content-max: 1280px;
+}
+@media (min-width: 640px) {
+  :root {
+    --section-px: 2rem;
+    --section-py: 6rem;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --section-px: 2.5rem;
+    --section-py: 7rem;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --section-px: 3rem;
+    --section-py: 8rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Gradient utilities */
+@layer utilities {
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+}
+
+/* Selected Works section title – horizontal orange to magenta gradient, italic */
+.selected-works-title-gradient {
+  background: linear-gradient(90deg, #ff8c6b 0%, #ff6b8a 35%, #e066ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0.08em;
+  display: inline-block;
+  font-style: italic;
+}
+
+/* Quote "experience" word – red to magenta to pink/purple gradient */
+.quote-experience-gradient {
+  background: linear-gradient(90deg, #dc2626 0%, #c026d3 50%, #d946ef 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
+  display: inline-block;
+}
+
+/* Apple Intelligence–style gradient for card title hover */
+.apple-intelligence-gradient {
+  background: linear-gradient(90deg, #a78bfa 0%, #818cf8 25%, #6366f1 50%, #3b82f6 75%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hero title gradient – extra padding so descenders (g, y, p) aren’t clipped */
+.hero-title-gradient {
+  background: linear-gradient(90deg, #ff7b49 0%, #ff4f8f 35%, #7f7cff 70%, #6fc7ff 100%);
+  background-size: 100% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: saturate(0.95) brightness(1.06);
+  padding-bottom: 0.12em;
+  display: inline-block;
+}
+
+/* Hero headline – bigger on all screens */
+.hero-headline {
+  font-size: clamp(2.75rem, 11vw, 5rem);   /* mobile: larger base */
+}
+@media (min-width: 640px) {
+  .hero-headline {
+    font-size: clamp(3.5rem, 13vw, 6.5rem);
+  }
+}
+@media (min-width: 768px) {
+  .hero-headline {
+    font-size: clamp(4.25rem, 12vw, 7.5rem);
+  }
+}
+@media (min-width: 1024px) {
+  .hero-headline {
+    font-size: clamp(5rem, 10vw, 6.5rem);
+  }
+}
+@media (min-width: 1280px) {
+  .hero-headline {
+    font-size: clamp(6rem, 8vw, 7.5rem);
+  }
+}
+@media (min-width: 1536px) {
+  .hero-headline {
+    font-size: 7.5rem; /* 120px */
+  }
+}
+
+/* Typewriter caret – thin, responsive, vertically centered */
+.typewriter-cursor {
+  width: clamp(0.1rem, 0.5vw, 0.25rem);
+  height: 0.75em;
+  min-height: 0.1rem;
+  margin-left: 0.2em;
+  vertical-align: middle;
+  display: inline-block;
+  background: linear-gradient(180deg, #ff7b49 0%, #ff4f8f 35%, #7f7cff 70%, #6fc7ff 100%);
+  border-radius: 9999px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title-gradient,
+  .typewriter-cursor {
+    animation: none !important;
+  }
+}
+
+.font-serif-display {
+  font-family: var(--font-serif-display), 'Times New Roman', Times, serif;
+}
+
+.hero-nav-shell {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+}
+
+/* Liquid glass menu bar – Refraction 43, Depth 45, Dispersion 61, Frost 5, Splay 41 */
+.nav-liquid-glass {
+  /* Stacking context so backdrop-filter works on desktop Safari/Chrome */
+  isolation: isolate;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Refraction 43: subtle gradient bend, ~43% opacity in mid */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.043) 43%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  /* Frost 5: light frost = subtle blur */
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Depth 45 + Dispersion 61 (chromatic) + Splay 41 */
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.06),
+    0 6px 20px -4px rgba(0, 0, 0, 0.45),
+    0 0 24px -4px rgba(100, 120, 255, 0.08),
+    0 0 32px -8px rgba(255, 100, 140, 0.06),
+    0 14px 41px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Nav bar over light section: same glass params, light theme */
+.nav-liquid-glass-light {
+  isolation: isolate;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.43) 43%,
+    rgba(255, 255, 255, 0.78) 100%
+  );
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.03),
+    0 6px 20px -4px rgba(0, 0, 0, 0.12),
+    0 0 24px -4px rgba(100, 120, 255, 0.04),
+    0 0 32px -8px rgba(255, 100, 140, 0.03),
+    0 14px 41px -12px rgba(0, 0, 0, 0.08);
+}
+
+/* Keep nav above hero and all sections (fixes webview/desktop overlap) */
+#site-header {
+  z-index: 9999;
+  isolation: isolate;
+}
+
+/* Smooth theme switch when nav moves between light/dark sections */
+header .nav-liquid-glass,
+header .nav-name,
+header .nav-links a,
+header .nav-menu-btn,
+header .nav-mobile-menu .nav-mobile-link,
+header .hero-resume-btn {
+  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Nav over light section: same glass params (Refraction 43, Depth 45, Dispersion 61, Frost 5, Splay 41) */
+.nav-over-light .nav-liquid-glass,
+[data-nav-theme='light'] .nav-liquid-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.43) 43%,
+    rgba(255, 255, 255, 0.78) 100%
+  );
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.03),
+    0 6px 20px -4px rgba(0, 0, 0, 0.12),
+    0 0 24px -4px rgba(100, 120, 255, 0.04),
+    0 0 32px -8px rgba(255, 100, 140, 0.03),
+    0 14px 41px -12px rgba(0, 0, 0, 0.08);
+}
+.nav-over-light .nav-name,
+.nav-over-light .nav-links a,
+.nav-over-light .nav-menu-btn,
+[data-nav-theme='light'] .nav-name,
+[data-nav-theme='light'] .nav-links a,
+[data-nav-theme='light'] .nav-menu-btn {
+  color: rgba(0, 0, 0, 0.85) !important;
+}
+.nav-over-light .nav-links a:hover,
+[data-nav-theme='light'] .nav-links a:hover {
+  color: #000 !important;
+}
+.nav-over-light .nav-menu-btn:hover,
+[data-nav-theme='light'] .nav-menu-btn:hover {
+  color: #000 !important;
+}
+.nav-over-light .nav-mobile-menu .nav-mobile-link,
+[data-nav-theme='light'] .nav-mobile-menu .nav-mobile-link {
+  color: rgba(0, 0, 0, 0.75) !important;
+}
+.nav-over-light .nav-mobile-menu .nav-mobile-link:hover,
+[data-nav-theme='light'] .nav-mobile-menu .nav-mobile-link:hover {
+  color: #000 !important;
+}
+.nav-over-light .hero-resume-btn,
+[data-nav-theme='light'] .hero-resume-btn {
+  color: rgba(0, 0, 0, 0.9);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 0 18px -2px rgba(255, 100, 150, 0.25),
+    0 0 24px -4px rgba(100, 180, 255, 0.15);
+}
+.nav-over-light .hero-resume-btn:hover,
+[data-nav-theme='light'] .hero-resume-btn:hover {
+  color: #000;
+  background: #fff;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 0 22px -2px rgba(255, 100, 150, 0.35),
+    0 0 28px -4px rgba(100, 180, 255, 0.2);
+}
+
+/* Resume button: pill shape, dark fill, glowing gradient border (reddish-pink → light blue/cyan) */
+.hero-resume-btn {
+  font-family: var(--font-serif-display), 'Times New Roman', Times, serif;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  padding: 0.6rem 1.35rem;
+  font-size: 0.8rem;
+  position: relative;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 18px -2px rgba(255, 100, 150, 0.35),
+    0 0 24px -4px rgba(100, 180, 255, 0.2);
+  background-clip: padding-box;
+}
+.hero-resume-btn::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #ff6b8a 0%, #ff8a6b 25%, #c77cff 50%, #6bb3ff 75%, #6ec8ff 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.hero-resume-btn:hover {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 22px -2px rgba(255, 100, 150, 0.45),
+    0 0 28px -4px rgba(100, 180, 255, 0.28);
+}
+
+/* Resume button when nav is over light section */
+.nav-resume-btn-light {
+  font-family: var(--font-serif-display), 'Times New Roman', Times, serif;
+  color: rgba(0, 0, 0, 0.92);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  padding: 0.6rem 1.35rem;
+  font-size: 0.8rem;
+  position: relative;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 0 18px -2px rgba(255, 100, 150, 0.22),
+    0 0 24px -4px rgba(100, 180, 255, 0.14);
+  background-clip: padding-box;
+}
+.nav-resume-btn-light::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #ff6b8a 0%, #ff8a6b 25%, #c77cff 50%, #6bb3ff 75%, #6ec8ff 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.nav-resume-btn-light:hover {
+  color: #000;
+  background: #fff;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 0 22px -2px rgba(255, 100, 150, 0.35),
+    0 0 28px -4px rgba(100, 180, 255, 0.22);
+}
+
+.hero-vignette {
+  background:
+    radial-gradient(1200px 700px at 50% 45%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0.86) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 78%, rgba(0,0,0,0.88) 100%);
+}
+
+/* Symmetric layout – shared horizontal padding and max-width */
+.section-spacing-x {
+  padding-left: max(var(--section-px), env(safe-area-inset-left));
+  padding-right: max(var(--section-px), env(safe-area-inset-right));
+}
+
+.section-spacing-y {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+.max-w-content {
+  max-width: var(--content-max);
+}
+
+/* Philosophy section – subtle graph-paper / notebook dot background */
+#philosophy.philosophy-section-bg {
+  background-color: #F8F8F8;
+  background-image: radial-gradient(circle, #D3D3D3 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+/* Philosophy cards – dotted fill for one card */
+.philosophy-dotted-bg {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+.philosophy-dotted-bg.scribble {
+  opacity: 0.3;
+  filter: contrast(120%);
+  mix-blend-mode: multiply;
+}
+.philosophy-collage-card {
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  box-shadow: 15px 15px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+.philosophy-collage-card:hover {
+  box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.08);
+}
+@media (hover: hover) {
+  .philosophy-collage-card:hover {
+    transform: scale(1.05);
+  }
+  #philosophy .philosophy-card-group:hover {
+    z-index: 50;
+  }
+}
+.philosophy-hand-drawn-border {
+  border: 3px solid #2d3436;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+/* Footer – reuses Hero background via HeroBackground component */
+.footer-title-gradient {
+  background: linear-gradient(90deg, #ea580c 0%, #f43f5e 35%, #ec4899 65%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+.footer-resume-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  position: relative;
+  background-clip: padding-box;
+}
+.footer-resume-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 1px;
+  background: linear-gradient(90deg, #ea580c 0%, #f43f5e 35%, #ec4899 65%, #22d3ee 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(234, 88, 12, 0.2), 0 0 30px rgba(34, 211, 238, 0.15);
+}
+.footer-resume-btn:hover::before {
+  box-shadow: 0 0 24px rgba(234, 88, 12, 0.35), 0 0 36px rgba(34, 211, 238, 0.25);
+}

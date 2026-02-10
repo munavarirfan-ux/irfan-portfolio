@@ -1,0 +1,713 @@
+/* Global Styles */
+/* =========================
+   GLOBAL RESET
+   ========================= */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Force vertical scroll */
+    background: black;
+}
+
+canvas {
+    pointer-events: none;
+    /* Ensure particles don't block scroll */
+}
+
+body,
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    /* Ensure hero content is above particles if z-index is used on children, but hero is transparent so it's fine */
+    z-index: 1;
+    /* Content sits on top */
+    /* Subtle moving gradient */
+    background: radial-gradient(circle at 50% 50%, rgba(20, 20, 30, 0.4), transparent 60%);
+    background-size: 120% 120%;
+    transition: background-position 0.1s ease-out;
+}
+
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* Behind content */
+    pointer-events: none;
+    /* Allow clicking through if needed */
+}
+
+.hero-title {
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    font-weight: 650;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin: 0;
+
+    /* Apple Intelligence-style multi-stop gradient */
+    background: linear-gradient(90deg,
+            #0aa2ff 0%,
+            #5b7cff 18%,
+            #a86bff 36%,
+            #ff5bbd 56%,
+            #ff6a4a 74%,
+            #ffb11a 100%);
+
+    background-size: 240% 100%;
+    background-position: 0% 50%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: appleGradientFlow 14s ease-in-out infinite;
+    position: relative;
+    filter: saturate(0.85) brightness(1.05);
+}
+
+.hero-title::after {
+    content: "";
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.20) 45%,
+            transparent 60%);
+
+    mix-blend-mode: screen;
+    filter: blur(12px);
+    opacity: 0.25;
+
+    animation: appleLightSweep 7.5s ease-in-out infinite;
+}
+
+@keyframes appleGradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes appleLightSweep {
+    0% {
+        transform: translateX(-35%);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.25;
+    }
+
+    55% {
+        transform: translateX(35%);
+        opacity: 0.18;
+    }
+
+    100% {
+        transform: translateX(35%);
+        opacity: 0;
+    }
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: -0.01em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-content {
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* .calm-text removed as gradient is now on H1 */
+
+
+
+/* Typewriter Cursor */
+.typewriter-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    font-weight: 650;
+    /* Match headline weight for better visibility */
+
+    /* Apple Intelligence-style gradient */
+    background: linear-gradient(90deg,
+            #0aa2ff 0%,
+            #5b7cff 18%,
+            #a86bff 36%,
+            #ff5bbd 56%,
+            #ff6a4a 74%,
+            #ffb11a 100%);
+    background-size: 240% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    /* Combined blink (1s) and gradient flow (14s) */
+    animation: blink 1s step-end infinite, appleGradientFlow 14s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* HERO ENTRANCE */
+.hero-enter,
+.hero-enter-2,
+.scroll-cta {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+}
+
+.hero-enter.is-in,
+.hero-enter-2.is-in,
+.scroll-cta.is-in {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+    transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
+}
+
+.hero-enter.is-in {
+    transition-delay: 120ms;
+}
+
+.hero-enter-2.is-in {
+    transition-delay: 650ms;
+}
+
+.scroll-cta.is-in {
+    transition-delay: 900ms;
+}
+
+/* Scroll CTA Button */
+.scroll-cta {
+    margin-top: 22px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 10px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.scroll-cta:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-enter,
+    .hero-enter-2,
+    .scroll-cta {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* [Legacy Work and Bento styles removed] */
+/* =========================
+   REFINED SECTIONS (Design Phase 2)
+   ========================= */
+
+/* --- SELECTED WORKS (Static Grid) --- */
+.work-rail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .work-rail {
+        grid-template-columns: 1fr;
+    }
+}
+
+.work-card-minimal {
+    width: 100%;
+    /* Full width of grid cell */
+    margin-right: 0;
+    scroll-snap-align: none;
+}
+
+/* --- ARCHITECTURAL CLARITY (Bento Grid) --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(320px, auto);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Spanning */
+.card-hero {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+.card-medium {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.card-small {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.bento-card {
+    position: relative;
+    border-radius: 32px;
+    background: rgba(15, 15, 20, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle border */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Content Layout */
+.card-visual {
+    flex: 1;
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+}
+
+.card-content {
+    position: relative;
+    padding: 32px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+    z-index: 2;
+}
+
+.bento-card h3 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 8px 0;
+    font-family: inherit;
+}
+
+.bento-card p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Specific Bento Visuals (Recreated) */
+.visual-systems {
+    background: radial-gradient(circle at center, rgba(66, 133, 244, 0.1), transparent 70%);
+}
+
+.visual-clarity {
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent 60%);
+}
+
+.sys-node {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: sysPulse 4s infinite ease-in-out;
+}
+
+@keyframes sysPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* --- SELECTED WORKS (Minimalist) --- */
+.work-card-minimal {
+    flex: 0 0 auto;
+    width: 400px;
+    /* Fixed width for classic look */
+    cursor: pointer;
+    margin-right: 40px;
+}
+
+.work-visual-minimal {
+    width: 100%;
+    height: 500px;
+    /* Tall portrait aspect ratio */
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    /* Smooth rounded corners from image 2 */
+    margin-bottom: 24px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.work-card-minimal:hover .work-visual-minimal {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+.work-meta-minimal {
+    padding-left: 4px;
+}
+
+.work-category {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.work-title-minimal {
+    font-size: 38px;
+    /* Large thin elegant serif/sans mix */
+    font-weight: 400;
+    /* Regular weight */
+    font-family: "Times New Roman", serif;
+    /* Serif for titles as requested */
+    color: white;
+    margin: 0 0 8px 0;
+    line-height: 1.1;
+}
+
+.work-desc-minimal {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+    max-width: 300px;
+    line-height: 1.5;
+}
+
+.media-drop-ar {
+    background: radial-gradient(circle at 30% 30%, rgba(66, 133, 244, 0.15), transparent 60%),
+        linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+/* Placeholder */
+.media-ziggy {
+    background: radial-gradient(circle at 70% 30%, rgba(255, 106, 136, 0.15), transparent 60%),
+        linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+/* Placeholder */
+.media-drop-ar-2 {
+    background: radial-gradient(circle at 50% 70%, rgba(48, 209, 88, 0.15), transparent 60%),
+        linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+/* Placeholder */
+
+
+/* [Vertical List Styles Removed] */
+
+/* --- PHILOSOPHY (Sticky Notes) --- */
+.philosophy {
+    background-color: #fff;
+    /* White background */
+    padding: 160px 0;
+    overflow: visible;
+}
+
+.philosophy-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.philosophy-head {
+    margin-bottom: 100px;
+}
+
+.philosophy-board {
+    position: relative;
+    height: 800px;
+    width: 100%;
+}
+
+.sticky-note {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    /* Square */
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* Hand-drawn feel */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 2px 2px 25px 2px;
+    /* One corner folded effect */
+
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: default;
+}
+
+.sticky-note:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    /* Subtle shadow */
+    transform: translateY(-2px);
+    /* Very slight lift */
+    z-index: 50;
+    /* No deep shadow or large scale */
+}
+
+/* Note 1: Purple (Complexity) */
+.note-1 {
+    top: 0;
+    left: 0;
+    background-color: #f5f5ff;
+    /* Light purple tint */
+    transform: rotate(-2deg);
+    border: 1px solid #e0e0f0;
+}
+
+/* Note 2: Blue (Structure) */
+.note-2 {
+    top: 50px;
+    left: 400px;
+    /* Center-ish */
+    background-color: #f0f8ff;
+    /* Light blue tint */
+    transform: rotate(1.5deg);
+    border: 1px solid #e0f0fa;
+}
+
+/* Note 3: Yellow (Systems) */
+.note-3 {
+    top: 300px;
+    left: 280px;
+    width: 280px;
+    height: 180px;
+    /* Rectangular */
+    background-color: #fffde7;
+    transform: rotate(-4deg);
+    border: 1px solid #fbf0c0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Note 4: Green (About) */
+.note-4 {
+    top: 350px;
+    right: 0;
+    background-color: #f1f8f6;
+    transform: rotate(3deg);
+    border: 1px solid #e0eae5;
+}
+
+.note-title {
+    font-family: "Times New Roman", serif;
+    font-size: 36px;
+    line-height: 1.1;
+    color: #111;
+    margin: 0;
+}
+
+.note-text {
+    font-family: -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Decorations (Pins/Stickers) */
+.note-pin {
+    display: none;
+    /* Removed pins for cleaner look matching image 6 */
+}
+
+.icon-complexity {
+    /* CSS shape? */
+    width: 40px;
+    height: 40px;
+    background: #e0e0ff;
+    margin-bottom: 20px;
+}
+
+.icon-structure {
+    width: 40px;
+    height: 40px;
+    background: #e0f0ff;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+
+/* --- FOOTER (Quiet Confidence) --- */
+.footer {
+    background-color: #050505;
+    /* Black */
+    color: white;
+    padding: 100px 0 40px;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-title {
+    font-family: "Times New Roman", serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    background: linear-gradient(90deg, #b080ff, #ff6a88);
+    /* Subtle sunset gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.9;
+    margin-bottom: 60px;
+    text-align: left;
+    /* Image shows left aligned */
+    font-style: italic;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    font-size: 13px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-nav a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+    color: white;
+}
+
+.resume-btn {
+    border: 1px solid #333;
+    padding: 12px 24px;
+    border-radius: 4px;
+    background: transparent;
+    color: #aaa;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+}
+
+.resume-btn:hover {
+    border-color: #666;
+    color: white;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .clarity-inner {
+        flex-direction: column;
+    }
+
+    .clarity-head {
+        position: relative;
+        top: 0;
+        margin-bottom: 60px;
+    }
+
+    .philosophy-board {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .sticky-note {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        width: 100%;
+        height: auto;
+        min-height: 250px;
+    }
+}
