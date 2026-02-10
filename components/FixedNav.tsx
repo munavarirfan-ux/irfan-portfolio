@@ -94,7 +94,7 @@ export default function FixedNav() {
                   </button>
 
                   <div
-                    className="text-[13px] sm:text-[14px] md:text-[15px] font-serif-display min-w-0 transition-colors duration-200 whitespace-nowrap cursor-pointer"
+                    className="hidden md:block text-[13px] sm:text-[14px] md:text-[15px] font-serif-display min-w-0 transition-colors duration-200 whitespace-nowrap cursor-pointer"
                     style={{ color: overLightBg ? '#111' : '#e0e0e0' }}
                     onClick={() => {
                       const el = document.getElementById('hero')
