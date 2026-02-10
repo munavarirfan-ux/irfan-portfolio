@@ -173,7 +173,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="relative h-screen w-full overflow-hidden bg-black"
+      className="hero-one-viewport relative w-full bg-black"
     >
       {/* Starfield */}
       <HeroBackground />
@@ -193,60 +193,65 @@ export default function Hero() {
       )}
 
       {/* Vignette / depth */}
-      <div aria-hidden="true" className="absolute inset-0 hero-vignette" />
+      <div aria-hidden="true" className="absolute inset-0 hero-vignette pointer-events-none" />
 
-      <div className="relative z-0 h-full w-full">
-        {/* Hero title – centered in the page, shifted up slightly for balanced negative space */}
-        <div className="absolute inset-0 flex items-center justify-center section-spacing-x">
-          <div className="max-w-content mx-auto w-full text-center flex flex-col items-center justify-center -translate-y-10 sm:-translate-y-12 md:-translate-y-14">
-            <motion.div
-              initial={{ opacity: 0, y: 10, filter: 'blur(6px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{
-                duration: prefersReducedMotion ? 0 : 0.7,
-                delay: prefersReducedMotion ? 0 : 0.08,
-                ease: 'easeOut',
+      {/* Row 1: Nav clearance so content doesn't sit under fixed nav */}
+      <div className="hero-row-nav-space" aria-hidden="true" />
+
+      {/* Row 2: Centered headline + pill (flex: 1, min-height: 0 so it can shrink); left-aligned on mobile */}
+      <div className="hero-row-center section-spacing-x relative z-0">
+        <div className="max-w-content mx-auto w-full text-left md:text-center flex flex-col items-start md:items-center justify-center px-1">
+          <motion.div
+            initial={{ opacity: 0, y: 10, filter: 'blur(6px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{
+              duration: prefersReducedMotion ? 0 : 0.7,
+              delay: prefersReducedMotion ? 0 : 0.08,
+              ease: 'easeOut',
+            }}
+            className="hero-pill-margin flex justify-start md:justify-center"
+          >
+            <div
+              className="rounded-[12px] px-3 py-1.5 sm:px-4 sm:py-2 text-[17px] sm:text-[18px] md:text-[19px] text-white/70 border border-white/10 font-serif-display backdrop-blur-[13.1px]"
+              style={{
+                background: 'linear-gradient(45deg, rgba(255, 120, 78, 0.2) 0%, rgba(249, 81, 149, 0.2) 50%, rgba(117, 172, 255, 0.2) 100%)',
               }}
-              className="mb-5 sm:mb-7 md:mb-10 flex justify-center"
             >
-              <div className="rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-[11px] md:text-[12px] text-white/70 border border-white/10 bg-white/5 font-serif-display">
-                Product Designer
-              </div>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 14, filter: 'blur(6px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{
-                duration: prefersReducedMotion ? 0 : 0.85,
-                delay: prefersReducedMotion ? 0 : 0.12,
-                ease: 'easeOut',
-              }}
-              className="font-serif-display hero-title-gradient leading-[0.96] tracking-[-0.02em] hero-headline text-center"
-            >
-              {renderText()}
-              <span className="inline-block ml-1 sm:ml-1.5 typewriter-cursor" aria-hidden="true" />
-            </motion.h1>
-          </div>
-        </div>
-
-        {/* Bottom links – filled band so every screen has a solid footer area */}
-        <div className="absolute bottom-0 left-0 right-0 section-spacing-x pt-12 sm:pt-14 md:pt-16 pb-8 sm:pb-10 md:pb-12 lg:pb-14 min-h-[88px] sm:min-h-[96px] md:min-h-[104px] flex flex-col justify-end">
-          <div className="max-w-content mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6 text-[11px] sm:text-xs md:text-[13px] text-white/40">
-            <div className="flex items-center gap-6 sm:gap-8 md:gap-10">
-              <a href="#" className="hover:text-white/60 transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-white/60 transition-colors">Behance</a>
-              <a href="#" className="hover:text-white/60 transition-colors">Instagram</a>
+              Product Designer
             </div>
+          </motion.div>
 
-            <button
-              type="button"
-              className="hover:text-white/60 transition-colors"
-              onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' })}
-            >
-              Scroll To Explore
-            </button>
+          <motion.h1
+            initial={{ opacity: 0, y: 14, filter: 'blur(6px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{
+              duration: prefersReducedMotion ? 0 : 0.85,
+              delay: prefersReducedMotion ? 0 : 0.12,
+              ease: 'easeOut',
+            }}
+            className="font-serif-display hero-title-gradient hero-headline text-left md:text-center w-full"
+          >
+            {renderText()}
+            <span className="inline-block ml-1 sm:ml-1.5 typewriter-cursor" aria-hidden="true" />
+          </motion.h1>
+        </div>
+      </div>
+
+      {/* Row 3: Bottom links – always visible in same hero viewport */}
+      <div className="hero-row-bottom section-spacing-x relative z-0">
+        <div className="max-w-content mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6 text-[11px] sm:text-xs md:text-[13px] text-white/40">
+          <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
+            <a href="https://www.linkedin.com/in/munavar-irfan-alisha-554531201/" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">LinkedIn</a>
+            <a href="https://www.behance.net/munavaralisha" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Behance</a>
+            <a href="https://www.instagram.com/irfan_visions/" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Instagram</a>
           </div>
+          <button
+            type="button"
+            className="hover:text-white/60 transition-colors"
+            onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' })}
+          >
+            Scroll To Explore
+          </button>
         </div>
       </div>
     </section>

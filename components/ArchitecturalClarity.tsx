@@ -85,10 +85,10 @@ function Card({ card, index, gridInView, prefersReducedMotion }: CardProps) {
         delay: prefersReducedMotion ? 0 : index * 0.08,
         ease: 'easeOut',
       }}
-      className="bg-white overflow-hidden flex flex-col h-full min-h-0"
+      className="bg-white overflow-hidden flex flex-col h-full min-h-0 rounded-[12px]"
     >
       <motion.div
-        className={`relative w-full min-h-[180px] sm:min-h-[220px] bg-neutral-200 shrink-0 overflow-hidden ${
+        className={`relative w-full min-h-[180px] sm:min-h-[220px] bg-neutral-200 shrink-0 overflow-hidden rounded-[12px] ${
           isLarge ? 'aspect-[3/4]' : 'aspect-[4/3]'
         }`}
         whileHover={prefersReducedMotion ? undefined : { scale: 1.03 }}
@@ -130,7 +130,7 @@ function Card({ card, index, gridInView, prefersReducedMotion }: CardProps) {
           {card.category}
         </span>
       </motion.div>
-      <div className="relative z-10 pt-6 pr-6 pb-6 pl-0 sm:pt-7 sm:pr-7 sm:pb-7 sm:pl-0 md:pt-8 md:pr-8 md:pb-8 md:pl-0 shrink-0 text-left">
+      <div className="relative z-10 pt-4 pr-6 pb-4 pl-0 sm:pt-5 sm:pr-7 sm:pb-5 sm:pl-0 md:pt-6 md:pr-8 md:pb-6 md:pl-0 shrink-0 text-left">
         <h3 className="text-xl sm:text-2xl md:text-3xl font-normal font-serif-display text-black mb-3 sm:mb-4 leading-tight text-left">
           {card.title}
         </h3>
@@ -194,8 +194,11 @@ export default function ArchitecturalClarity() {
                   />
                 </div>
               ) : rowIndex === 2 ? (
-                <div key="craft-quote" className="min-h-[320px] md:min-h-0 md:h-full flex bg-white p-8 sm:p-10 md:p-12 lg:p-14 flex-col justify-center text-left">
-                  <blockquote className="font-serif-display font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-left max-w-xl">
+                <div
+                  key="craft-quote"
+                  className="min-h-[320px] md:min-h-0 md:h-full flex bg-white p-6 sm:p-8 md:p-10 lg:p-12 flex-col justify-center text-left rounded-[12px] overflow-hidden"
+                >
+                  <blockquote className="font-serif-display font-extrabold text-[43px] leading-tight text-left max-w-xl">
                     <span className="text-[#e85d04]">&ldquo;</span>
                     <span className="text-black">Design</span>
                     <span className="font-normal text-neutral-500"> isn&apos;t the</span>
@@ -205,7 +208,7 @@ export default function ArchitecturalClarity() {
                     <span className="font-normal text-neutral-500"> behind it.</span>
                     <span className="text-blue-600">&rdquo;</span>
                   </blockquote>
-                  <p className="mt-3 sm:mt-4 font-normal text-black font-serif text-lg sm:text-xl md:text-2xl text-left ml-0">
+                  <p className="mt-3 sm:mt-4 py-0 font-normal text-black font-serif text-lg sm:text-xl md:text-2xl text-left ml-0">
                     – Munavar Irfan Alisha
                   </p>
                 </div>

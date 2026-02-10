@@ -29,8 +29,9 @@ export default function Footer() {
             Quiet Confidence
           </h2>
           <a
-            href="#"
-            className="footer-resume-btn text-sm sm:text-base font-sans font-medium hover:opacity-90 transition-opacity shrink-0"
+            href="/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf"
+            download
+            className="shrink-0 inline-block transition-colors duration-200 hero-resume-btn"
           >
             Download Resume
           </a>
@@ -47,13 +48,13 @@ export default function Footer() {
             +49 15210750041
           </span>
           <nav className="flex flex-wrap gap-6 sm:gap-8 text-white/90 text-sm sm:text-base font-sans sm:ml-auto">
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="https://www.linkedin.com/in/munavar-irfan-alisha-554531201/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               LinkedIn
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="https://www.behance.net/munavaralisha" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               Behance
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="https://www.instagram.com/irfan_visions/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               Instagram
             </a>
           </nav>

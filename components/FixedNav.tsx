@@ -50,17 +50,37 @@ export default function FixedNav() {
         id="site-header"
         className={`fixed top-0 left-0 right-0 z-[9999] transition-transform duration-300 ease-out ${overLightBg ? 'nav-over-light' : ''} translate-y-0`}
         data-nav-theme={overLightBg ? 'light' : 'dark'}
-        style={{ isolation: 'isolate' }}
       >
         <div className="section-spacing-x pt-4 sm:pt-5 md:pt-6">
           <div className="max-w-content mx-auto">
-            <div className={`rounded-full px-5 py-3.5 sm:px-6 sm:py-4 md:px-10 md:py-4 transition-colors duration-200 ${overLightBg ? 'nav-liquid-glass-light' : 'nav-liquid-glass'}`}>
+            <div className={`rounded-xl px-6 py-4 sm:px-7 sm:py-4 md:px-10 md:py-4 transition-colors duration-200 ${overLightBg ? 'nav-liquid-glass-light' : 'nav-liquid-glass'}`}>
               <div className="flex items-center justify-between gap-4">
-                <div
-                  className="text-[13px] sm:text-[14px] md:text-[15px] font-serif-display truncate min-w-0 max-w-[40%] sm:max-w-none transition-colors duration-200"
-                  style={{ color: overLightBg ? '#111' : '#e0e0e0' }}
-                >
-                  Munavar Irfan Alisha
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <button
+                    type="button"
+                    className="md:hidden flex flex-col gap-1.5 p-2 -ml-2 shrink-0 transition-colors duration-200"
+                    style={{ color: overLightBg ? '#111' : '#d0d0d0' }}
+                    onClick={() => setMobileMenuOpen((o) => !o)}
+                    aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded={mobileMenuOpen}
+                  >
+                    <span className={`block w-5 h-0.5 bg-current transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                    <span className={`block w-5 h-0.5 bg-current transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+                    <span className={`block w-5 h-0.5 bg-current transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+                  </button>
+
+                  <div
+                    className="text-[13px] sm:text-[14px] md:text-[15px] font-serif-display min-w-0 transition-colors duration-200 whitespace-nowrap cursor-pointer"
+                    style={{ color: overLightBg ? '#111' : '#e0e0e0' }}
+                    onClick={() => {
+                      const el = document.getElementById('hero')
+                      if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                      }
+                    }}
+                  >
+                    Munavar Irfan
+                  </div>
                 </div>
 
                 <nav className="hidden md:flex items-center justify-center flex-1 gap-12 lg:gap-16 text-[13px] lg:text-[14px] font-serif-display transition-colors duration-200">
@@ -69,21 +89,12 @@ export default function FixedNav() {
                   <a href="#philosophy" className="transition-colors" style={{ color: overLightBg ? '#222' : '#c0c0c0' }}>About</a>
                 </nav>
 
-                <button
-                  type="button"
-                  className="md:hidden flex flex-col gap-1.5 p-2 -mr-2 transition-colors duration-200"
-                  style={{ color: overLightBg ? '#111' : '#d0d0d0' }}
-                  onClick={() => setMobileMenuOpen((o) => !o)}
-                  aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-                  aria-expanded={mobileMenuOpen}
+                <a
+                  href="/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf"
+                  download
+                  className={`shrink-0 inline-block transition-colors duration-200 ${overLightBg ? 'nav-resume-btn-light' : 'hero-resume-btn'}`}
                 >
-                  <span className={`block w-5 h-0.5 bg-current transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                  <span className={`block w-5 h-0.5 bg-current transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`} />
-                  <span className={`block w-5 h-0.5 bg-current transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-                </button>
-
-                <a href="#" className={`shrink-0 inline-block transition-colors duration-200 ${overLightBg ? 'nav-resume-btn-light' : 'hero-resume-btn'}`}>
-                  Resume
+                  Download Resume
                 </a>
               </div>
             </div>
@@ -92,7 +103,7 @@ export default function FixedNav() {
 
         {mobileMenuOpen && (
           <div className="md:hidden section-spacing-x pt-2 px-0">
-            <div className="max-w-content mx-auto flex justify-end">
+            <div className="max-w-content mx-auto flex justify-start">
               <div className={`rounded-2xl px-6 py-4 flex flex-col gap-3 w-full max-w-[280px] transition-colors duration-200 ${overLightBg ? 'nav-liquid-glass-light' : 'nav-liquid-glass'}`}>
                 <a href="#work" className="text-[13px] transition-colors" style={{ color: overLightBg ? '#222' : '#c0c0c0' }} onClick={() => setMobileMenuOpen(false)}>Works</a>
                 <a href="#clarity" className="text-[13px] transition-colors" style={{ color: overLightBg ? '#222' : '#c0c0c0' }} onClick={() => setMobileMenuOpen(false)}>Capabilities</a>

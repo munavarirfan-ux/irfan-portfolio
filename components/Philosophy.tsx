@@ -43,7 +43,7 @@ const notes = [
   },
   {
     id: 'about',
-    title: 'About',
+    title: 'About me 😎',
     body: 'I design digital products by thinking in systems, not screens. My approach blends modular thinking, human-centered design, and long-term scalability. I focus on creating foundations that grow gracefully, adapt easily, and stay clear under pressure. The goal is simple: design products that feel intentional, intuitive, and built to last.',
     bg: 'bg-[#F0FFF4]',
     pattern: false,
@@ -162,7 +162,7 @@ export default function Philosophy() {
                   delay: prefersReducedMotion ? 0 : index * 0.08,
                   ease: 'easeOut',
                 }}
-                className={`relative p-6 sm:p-8 ${note.bg} ${note.pattern ? 'philosophy-dotted-bg' : ''} philosophy-hand-drawn-border philosophy-collage-card flex flex-col gap-4`}
+                className={`relative p-4 sm:p-6 ${note.bg} ${note.pattern ? 'philosophy-dotted-bg' : ''} philosophy-hand-drawn-border philosophy-collage-card flex flex-col gap-4`}
               >
                 {note.icon === 'blocks' && (
                   <div className="mb-1">
@@ -179,7 +179,7 @@ export default function Philosophy() {
                     <IconLightning />
                   </div>
                 )}
-                <h3 className="font-serif-display font-normal text-[#2d3436] text-xl sm:text-2xl md:text-3xl leading-tight pr-10">
+                <h3 className="font-serif-display font-semibold text-[#2d3436] text-xl sm:text-2xl md:text-3xl leading-tight pr-10">
                   {note.title}
                 </h3>
                 <p className="text-slate-600 font-sans text-sm leading-relaxed overflow-y-auto max-h-[280px]">
@@ -215,7 +215,7 @@ export default function Philosophy() {
                 whileDrag={{ zIndex: 50, cursor: 'grabbing' }}
               >
                 <motion.div
-                  className={`h-full p-8 ${note.bg} ${note.pattern ? 'philosophy-dotted-bg' : ''} philosophy-hand-drawn-border philosophy-collage-card flex flex-col overflow-hidden relative`}
+                  className={`h-full p-6 ${note.bg} ${note.pattern ? 'philosophy-dotted-bg' : ''} philosophy-hand-drawn-border philosophy-collage-card flex flex-col overflow-hidden relative`}
                 >
                   {note.icon === 'blocks' && (
                     <div className="mb-3">
@@ -232,7 +232,7 @@ export default function Philosophy() {
                       <IconLightning />
                     </div>
                   )}
-                  <h3 className="font-serif-display font-normal text-[#2d3436] text-2xl md:text-3xl leading-tight pr-10 flex-shrink-0">
+                  <h3 className="font-serif-display font-semibold text-[#2d3436] text-2xl md:text-3xl leading-tight pr-10 flex-shrink-0">
                     {note.title}
                   </h3>
                   <p className="text-slate-600 font-sans text-sm leading-relaxed mt-2 flex-1 min-h-0 overflow-y-auto">

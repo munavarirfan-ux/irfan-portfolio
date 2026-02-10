@@ -25,8 +25,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${sans.variable} ${serifDisplay.variable}`}>{children}</body>
+    <html lang="en" className="viewport-root">
+      <body className={`${sans.variable} ${serifDisplay.variable}`}>
+        <div className="viewport-1716x879">{children}</div>
+      </body>
     </html>
   )
 }
