@@ -3,14 +3,17 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import HeroBackground from '@/components/HeroBackground'
 import HeroParticles from '@/components/HeroParticles'
 
 export default function Footer() {
   const ref = useRef(null)
+  const pathname = usePathname()
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const prefersReducedMotion = useReducedMotion()
+  const isCaseStudyPage = pathname?.startsWith('/case-study') || pathname?.startsWith('/case-studies')
 
   return (
     <footer id="footer" className="relative overflow-hidden bg-black text-white section-spacing-x pt-[var(--section-py)] pb-8 sm:pb-10 flex flex-col">
@@ -45,30 +48,29 @@ export default function Footer() {
                 aria-hidden
               />
             </a>
-            <h2 className="font-serif-display text-l sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight footer-title-gradient">
+            <h2 className="font-serif-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight footer-title-gradient">
               Quiet Confidence
             </h2>
           </div>
-          <a
-            href="/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf"
-            download
-            className="shrink-0 inline-block transition-colors duration-200 hero-resume-btn"
-          >
-            Download Resume
-          </a>
+          {!isCaseStudyPage && (
+            <a
+              href="/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf"
+              download
+              className="shrink-0 inline-block transition-colors duration-200 hero-resume-btn"
+            >
+              Download Resume
+            </a>
+          )}
         </motion.div>
 
-        {/* Bottom row: phone left, social links (LinkedIn etc.) at end of screen */}
+        {/* Bottom row: social links left, phone right */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 0.15, ease: 'easeOut' }}
           className="mt-auto flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 sm:gap-4 pt-6 sm:pt-8 pb-4 sm:pb-6 border-t border-white/10"
         >
-          <span className="text-white/90 text-sm sm:text-base font-sans">
-            +49 15210750041
-          </span>
-          <nav className="flex flex-wrap gap-6 sm:gap-8 text-white/90 text-sm sm:text-base font-sans sm:ml-auto">
+          <nav className="flex flex-wrap gap-6 sm:gap-8 text-white/90 text-sm sm:text-base font-sans">
             <a href="https://www.linkedin.com/in/munavar-irfan-alisha-554531201/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               LinkedIn
             </a>
@@ -79,6 +81,9 @@ export default function Footer() {
               Instagram
             </a>
           </nav>
+          <span className="text-white/90 text-sm sm:text-base font-sans sm:ml-auto">
+            +49 15210750041
+          </span>
         </motion.div>
       </div>
     </footer>
