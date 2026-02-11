@@ -20,7 +20,12 @@ export default function ValidationOutcome({ data }: { data: ValidationOutcomeTyp
         <h3 className="text-xl md:text-2xl font-bold text-[var(--cs-text)] mb-6">
           Validation
         </h3>
-        {data.validation.bullets.length === 1 ? (
+        {data.validation.intro && (
+          <p className="text-[var(--cs-text-muted)] text-base leading-relaxed max-w-[65ch] mb-4">
+            {data.validation.intro}
+          </p>
+        )}
+        {data.validation.bullets.length === 1 && !data.validation.intro ? (
           <p className="text-[var(--cs-text-muted)] text-base leading-relaxed max-w-[65ch]">
             {data.validation.bullets[0]}
           </p>
@@ -48,7 +53,12 @@ export default function ValidationOutcome({ data }: { data: ValidationOutcomeTyp
         <h3 className="text-xl md:text-2xl font-bold text-[var(--cs-text)] mb-6">
           Outcome
         </h3>
-        {data.outcome.bullets.length === 1 ? (
+        {data.outcome.intro && (
+          <p className="text-[var(--cs-text-muted)] text-base leading-relaxed max-w-[65ch] mb-4">
+            {data.outcome.intro}
+          </p>
+        )}
+        {data.outcome.bullets.length === 1 && !data.outcome.intro ? (
           <p className="text-[var(--cs-text-muted)] text-base leading-relaxed max-w-[65ch]">
             {data.outcome.bullets[0]}
           </p>

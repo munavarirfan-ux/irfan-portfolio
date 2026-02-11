@@ -112,6 +112,14 @@ body {
   color: transparent;
 }
 
+/* Closing statement second highlight – warm orange/amber */
+.closing-highlight-orange {
+  background: linear-gradient(90deg, #ea580c 0%, #f59e0b 50%, #eab308 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* Hero title gradient – extra padding so descenders (g, y, p) aren’t clipped */
 .hero-title-gradient {
   background: linear-gradient(90deg, #ff7b49 0%, #ff4f8f 35%, #7f7cff 70%, #6fc7ff 100%);
@@ -703,6 +711,15 @@ header .hero-resume-btn {
   letter-spacing: 0.05em;
   color: var(--decisions-heading);
   background: #fff;
+}
+
+/* Simple token pill – light grey bg, thin border (e.g. "Decision 1") */
+.decisions-token-pill-simple {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  border-radius: 8px;
+  border: 1px solid var(--decisions-border);
+  background: #f0f0f0;
 }
 
 /* Decisions card – gradient pink → orange/peach → sky blue, large rounded corners, floating shadow */

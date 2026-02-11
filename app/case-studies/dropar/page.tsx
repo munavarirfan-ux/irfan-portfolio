@@ -150,11 +150,13 @@ export default function CaseStudyDropARPage() {
         <div className="case-study-wrap section-spacing-x">
           {/* Header: gradient pill (white text) + large black title + grey subtitle */}
           <header className="mb-6 md:mb-8">
-            <div className="mb-6">
-              <span className="decisions-header-pill tracking-wide">
-                Strategic Execution
-              </span>
-            </div>
+            {decisions.headerTag && (
+              <div className="mb-6">
+                <span className="decisions-header-pill tracking-wide">
+                  {decisions.headerTag}
+                </span>
+              </div>
+            )}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight text-[var(--decisions-text)] font-sans mb-4">
               {decisions.heading}
             </h2>

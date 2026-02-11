@@ -1,16 +1,36 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import type { CaseStudyData } from '@/lib/case-study-data'
 
 type Props = {
   methodology: CaseStudyData['methodology']
+  /** When false, show a gradient block or video instead of the flowchart (e.g. Ship the BIM). Default true. */
+  showFlowchart?: boolean
+  /** When provided and showFlowchart is false, show this video instead of the gradient block. */
+  videoSrc?: string
+  /** When false, hide the bottom visual entirely (no flowchart, video, or gradient). Default true. */
+  showBottomBlock?: boolean
 }
 
-export default function ProcessMethodology({ methodology }: Props) {
+export default function ProcessMethodology({ methodology, showFlowchart = true, videoSrc, showBottomBlock = true }: Props) {
   const ref = useRef(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoContainerRef = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+  const videoInView = useInView(videoContainerRef, { once: false, amount: 0.25 })
+
+  useEffect(() => {
+    if (!videoSrc || !videoRef.current) return
+    const video = videoRef.current
+    if (videoInView) {
+      video.currentTime = 0
+      video.play().catch(() => { /* autoplay may be blocked */ })
+    } else {
+      video.pause()
+    }
+  }, [videoInView, videoSrc])
 
   const title = methodology.heading
   // Split for two gradient parts: "intelligent" (magenta→purple) and "integration" (orange→magenta)
@@ -104,74 +124,101 @@ export default function ProcessMethodology({ methodology }: Props) {
           ))}
         </motion.div>
 
-        {/* Flowchart – gradient border, three columns */}
+        {/* Bottom: flowchart (DropAR), video, gradient, or hidden */}
+        {showBottomBlock && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.35, ease: 'easeOut' }}
-          className="mt-16 md:mt-20 rounded-2xl p-[2px] methodology-flowchart-border"
+          className="mt-16 md:mt-20"
         >
-          <div className="rounded-2xl bg-transparent border border-white/5 p-6 md:p-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-4 font-sans">
-                  Front end
-                </p>
-                <div className="flex flex-col items-start gap-3">
-                  <span className="text-sm text-white font-sans">Truck Camera Vision</span>
-                  <div
-                    className="w-14 h-14 rounded-lg border border-white/20 flex items-center justify-center bg-white/5"
-                    aria-hidden
-                  >
-                    <svg className="w-7 h-7 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-                    </svg>
+          {showFlowchart ? (
+            <div className="rounded-2xl p-[2px] methodology-flowchart-border">
+              <div className="rounded-2xl bg-transparent border border-white/5 p-6 md:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-4 font-sans">
+                      Front end
+                    </p>
+                    <div className="flex flex-col items-start gap-3">
+                      <span className="text-sm text-white font-sans">Truck Camera Vision</span>
+                      <div
+                        className="w-14 h-14 rounded-lg border border-white/20 flex items-center justify-center bg-white/5"
+                        aria-hidden
+                      >
+                        <svg className="w-7 h-7 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                        </svg>
+                      </div>
+                      <span className="text-xs text-white/50 font-sans">Unique fingerprints →</span>
+                    </div>
                   </div>
-                  <span className="text-xs text-white/50 font-sans">Unique fingerprints →</span>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-4 font-sans">
+                      Backend
+                    </p>
+                    <div className="flex flex-col items-start gap-3">
+                      <span className="text-sm text-white font-sans">Management and routing software</span>
+                      <div className="w-14 h-14 rounded-lg border border-white/20 flex items-center justify-center bg-white/5" aria-hidden>
+                        <svg className="w-7 h-7 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
+                        </svg>
+                      </div>
+                      <span className="text-sm text-white/80 font-sans">Parcel & customer info</span>
+                      <div className="w-10 h-10 rounded border border-white/20 flex items-center justify-center bg-white/5" aria-hidden>
+                        <svg className="w-5 h-5 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                        </svg>
+                      </div>
+                      <span className="text-xs text-white/50 font-sans">Recognition algorithm</span>
+                      <span className="text-xs text-white/50 font-sans">Tracking algorithm</span>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-4 font-sans">
+                      Frontend
+                    </p>
+                    <div className="flex flex-col items-start gap-3">
+                      <span className="text-sm text-white font-sans">AR integrated mobile application</span>
+                      <div className="w-14 h-14 rounded-lg border border-white/20 flex items-center justify-center bg-white/5" aria-hidden>
+                        <svg className="w-7 h-7 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 002.25-2.25v-15a2.25 2.25 0 00-2.25-2.25h-10.5a2.25 2.25 0 00-2.25 2.25v15a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-4 font-sans">
-                  Backend
-                </p>
-                <div className="flex flex-col items-start gap-3">
-                  <span className="text-sm text-white font-sans">Management and routing software</span>
-                  <div className="w-14 h-14 rounded-lg border border-white/20 flex items-center justify-center bg-white/5" aria-hidden>
-                    <svg className="w-7 h-7 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
-                    </svg>
-                  </div>
-                  <span className="text-sm text-white/80 font-sans">Parcel & customer info</span>
-                  <div className="w-10 h-10 rounded border border-white/20 flex items-center justify-center bg-white/5" aria-hidden>
-                    <svg className="w-5 h-5 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-                    </svg>
-                  </div>
-                  <span className="text-xs text-white/50 font-sans">Recognition algorithm</span>
-                  <span className="text-xs text-white/50 font-sans">Tracking algorithm</span>
-                </div>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-4 font-sans">
-                  Frontend
-                </p>
-                <div className="flex flex-col items-start gap-3">
-                  <span className="text-sm text-white font-sans">AR integrated mobile application</span>
-                  <div className="w-14 h-14 rounded-lg border border-white/20 flex items-center justify-center bg-white/5" aria-hidden>
-                    <svg className="w-7 h-7 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 002.25-2.25v-15a2.25 2.25 0 00-2.25-2.25h-10.5a2.25 2.25 0 00-2.25 2.25v15a2.25 2.25 0 002.25 2.25z" />
-                    </svg>
-                  </div>
+                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
+                  <span className="text-sm text-white/400 font-sans">Loading</span>
+                  <span className="text-sm text-white/400 font-sans">Processing</span>
+                  <span className="text-sm text-white/400 font-sans">Delivery</span>
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
-              <span className="text-sm text-white/400 font-sans">Loading</span>
-              <span className="text-sm text-white/400 font-sans">Processing</span>
-              <span className="text-sm text-white/400 font-sans">Delivery</span>
+          ) : videoSrc ? (
+            <div ref={videoContainerRef} className="rounded-2xl overflow-hidden w-full bg-black/20">
+              <video
+                ref={videoRef}
+                src={videoSrc}
+                controls
+                playsInline
+                className="w-full h-auto"
+                aria-label="Product demo"
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
-          </div>
+          ) : (
+            <div
+              className="rounded-2xl overflow-hidden w-full min-h-[200px]"
+              style={{
+                background: 'linear-gradient(90deg, #e85a4f 0%, #c44d7a 35%, #7b68c9 70%, #4a90d9 100%)',
+              }}
+              aria-hidden
+            />
+          )}
         </motion.div>
+        )}
       </div>
     </section>
   )

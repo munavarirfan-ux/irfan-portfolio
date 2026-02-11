@@ -42,7 +42,7 @@ export default function CaseStudyHero({ data, screenImagePaths, screenImageAlts,
           </h1>
 
           <p
-            className="text-[28px] sm:text-[32px] md:text-[36px] leading-tight max-w-2xl mb-12 font-sans font-extralight"
+            className="text-[28px] sm:text-[32px] md:text-[36px] leading-tight max-w-2xl mt-4 mb-12 font-sans font-extralight"
             style={{ color: '#8a8a8a' }}
           >
             {data.subtitle}

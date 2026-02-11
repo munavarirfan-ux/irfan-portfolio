@@ -3,7 +3,7 @@ import type { MetaItem } from '@/lib/case-study-data'
 export default function MetaRow({ items }: { items: MetaItem[] }) {
   return (
     <div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 py-0"
+      className={`grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 py-0 ${items.length >= 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-4'}`}
       role="list"
     >
       {items.map((item, i) => (
