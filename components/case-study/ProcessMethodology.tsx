@@ -32,17 +32,12 @@ export default function ProcessMethodology({ methodology, showFlowchart = true, 
     }
   }, [videoInView, videoSrc])
 
-  const title = methodology.heading
-  // Split for two gradient parts: "intelligent" (magenta→purple) and "integration" (orange→magenta)
+  // 2-line heading: "Architectural efficiency" / "through intelligent integration" (gradient on last two words)
   const intelligent = 'intelligent'
-  const integration = 'integration'
-  const beforeInt = title.split(intelligent)[0] ?? '' // "Architectural efficiency through "
-  const afterInt = title.slice(beforeInt.length + intelligent.length) // " integration" (with leading space)
-  const spaceBeforeIntegration = afterInt.startsWith(' ') ? ' ' : ''
-  const integrationWord = afterInt.trimStart() // "integration"
+  const integrationWord = 'integration'
 
   return (
-    <section className="case-study-dark case-study-dot py-16 md:py-24" ref={ref}>
+    <section className="case-study-dark case-study-dot py-20 md:py-28 lg:py-32" ref={ref}>
       <div className="case-study-wrap section-spacing-x max-w-4xl">
         {/* Tag – gradient border (orange to blue/purple) */}
         {methodology.tag && (
@@ -50,7 +45,7 @@ export default function ProcessMethodology({ methodology, showFlowchart = true, 
             initial={{ opacity: 0, y: 8 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="mb-6"
+            className="mb-8"
           >
             <span className="methodology-tag-wrap">
               <span className="methodology-tag font-sans uppercase tracking-wider">{methodology.tag}</span>
@@ -58,17 +53,17 @@ export default function ProcessMethodology({ methodology, showFlowchart = true, 
           </motion.div>
         )}
 
-        {/* Title – white + "intelligent" (gradient) + "integration" (gradient), generous line spacing */}
+        {/* Title – 2 lines: white "Architectural efficiency" / "through " + gradient "intelligent integration" */}
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
-          className="text-2xl sm:text-3xl md:text-[32px] lg:text-[42px] font-bold tracking-tight text-white mb-6 font-sans leading-[1.35]"
+          className="text-2xl sm:text-3xl md:text-[32px] lg:text-[42px] font-bold tracking-tight text-white mb-8 md:mb-10 font-sans leading-[1.35]"
         >
-          {beforeInt}
-          <span className="methodology-title-intelligent">{intelligent}</span>
-          {spaceBeforeIntegration}
-          <span className="methodology-title-integration">{integrationWord}</span>
+          <span className="block">Architectural efficiency</span>
+          <span className="block">
+            through <span className="methodology-title-gradient">{intelligent} {integrationWord}</span>
+          </span>
         </motion.h2>
 
         {/* Description – light grey, lighter weight, constrained width */}
@@ -77,7 +72,7 @@ export default function ProcessMethodology({ methodology, showFlowchart = true, 
             initial={{ opacity: 0, y: 12 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-            className="text-base md:text-lg text-[var(--cs-text-muted)] max-w-2xl leading-relaxed mb-8 font-sans font-normal"
+            className="text-base md:text-lg text-[var(--cs-text-muted)] max-w-2xl leading-relaxed mb-10 font-sans font-normal"
           >
             {methodology.description}
           </motion.p>
@@ -89,7 +84,7 @@ export default function ProcessMethodology({ methodology, showFlowchart = true, 
             initial={{ opacity: 0, y: 12 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
-            className="text-lg font-semibold text-white mb-10 font-sans"
+            className="text-lg font-semibold text-white mb-12 font-sans"
           >
             {methodology.subheading}
           </motion.p>

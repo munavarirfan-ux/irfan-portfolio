@@ -108,7 +108,7 @@ const droparDecisions: DecisionBlock[] = [
     options: 'Keep navigation external + delivery inside app · Split AR as a separate mode · Unify navigation + verification + confirmation inside one flow',
     finalSolution: 'A single delivery loop: route → AR cues → scan/verify → confirm → next stop.',
     impact: 'Lower mental overhead, fewer "where am I / what next" moments, faster progression between stops (qualitative from observation + workflow mapping).',
-    tradeOff: 'More complexity in state handling (offline, reroute, mismatch) — solved through explicit states + quick recovery actions.',
+    tradeOff: 'More complexity in state handling (offline, reroute, mismatch), solved through explicit states + quick recovery actions.',
     imagePath: '/case-studies/dropar/decision-1.png',
     imageAlt: 'Consolidated delivery workflow – single flow',
     screenImagePaths: ['/case-studies/dropar/4.png', '/case-studies/dropar/5.png', '/case-studies/dropar/6.png'],
@@ -121,7 +121,7 @@ const droparDecisions: DecisionBlock[] = [
     options: 'Stronger map UI · Text-based step guidance · AR camera overlay with directional cues',
     finalSolution: 'Camera view becomes the primary navigation surface, with route arrows and contextual cues.',
     impact: 'Faster orientation at the last 20–50 meters, less second-guessing entrances and drop points (behavioral insight-driven).',
-    tradeOff: 'Visibility issues in glare/bright light — handled with contrast-first UI and simplified overlays.',
+    tradeOff: 'Visibility issues in glare/bright light, handled with contrast-first UI and simplified overlays.',
     imagePath: '/case-studies/dropar/decision-2.png',
     imageAlt: 'AR cues over addresses',
     screenImagePaths: ['/case-studies/dropar/7.png', '/case-studies/dropar/8.png', '/case-studies/dropar/9.png'],
@@ -134,7 +134,7 @@ const droparDecisions: DecisionBlock[] = [
     options: 'Manual entry only · Scan only (no verification) · Scan + match confirmation + mismatch recovery',
     finalSolution: 'Smart parcel scan with clear outcomes: match / mismatch / rescan / manual fallback.',
     impact: 'Reduced error likelihood during time pressure by making the "correct next action" obvious.',
-    tradeOff: 'Extra step when scan fails — softened with fast retry + one-tap manual entry.',
+    tradeOff: 'Extra step when scan fails, softened with fast retry + one-tap manual entry.',
     imagePath: '/case-studies/dropar/decision-3.png',
     imageAlt: 'Smart parcel scan with verification states',
     screenImagePaths: ['/case-studies/dropar/10.png', '/case-studies/dropar/11.png', '/case-studies/dropar/12.png'],
@@ -147,7 +147,7 @@ const droparDecisions: DecisionBlock[] = [
     options: 'Full touch UI · Voice-only · Hybrid: voice prompts + simple touch confirmations',
     finalSolution: 'Spoken updates and commands paired with minimal-touch confirmations and one-hand gestures.',
     impact: 'Less screen dependency, smoother flow when hands are occupied, calmer delivery behavior.',
-    tradeOff: 'Voice reliability in noisy environments — kept commands limited and always provided touch fallback.',
+    tradeOff: 'Voice reliability in noisy environments, kept commands limited and always provided touch fallback.',
     imagePath: '/case-studies/dropar/decision-4.png',
     imageAlt: 'Voice workflow + minimal touch completion',
     screenImagePaths: ['/case-studies/dropar/13.png', '/case-studies/dropar/14.png', '/case-studies/dropar/15.png'],
@@ -238,7 +238,7 @@ const shipTheBimDecisions: DecisionBlock[] = [
     title: 'No App Switching: Unified Readiness Flow',
     why: "User's hate switching between DVM, system console and applications.",
     options: '',
-    finalSolution: 'During the flow — upload 4 docs for DVM, 2 reviews on System to skip.',
+    finalSolution: 'During the flow, upload 4 docs for DVM, 2 reviews on System to skip.',
     impact: "Reduced users' time, more convenience.",
     tradeOff: 'Hardcore users lose some power, in some cases it will block out one.',
     imagePath: '/case-studies/ship-the-bim/STB 2.png',
@@ -249,7 +249,7 @@ const shipTheBimDecisions: DecisionBlock[] = [
     title: 'Score-First Readiness View',
     why: 'Users want to see score first, then details.',
     options: '',
-    finalSolution: 'A 2 tab scrolling view — issue breakdown by category.',
+    finalSolution: 'A 2 tab scrolling view, issue breakdown by category.',
     impact: 'Faster grasp for issues and scope.',
     tradeOff: 'Minority group loosing ability with some personas.',
     imagePath: '/case-studies/ship-the-bim/STB 3.png',
@@ -348,7 +348,7 @@ export const shipTheBimCaseStudy: CaseStudyData = {
 
 // ——— Ziggy ———
 const ziggyHeroSummary = [
-  'Ziggy was designed as a context-aware AI companion — one that adapts quietly to space, behavior, and presence rather than demanding attention.',
+  'Ziggy was designed as a context-aware AI companion, one that adapts quietly to space, behavior, and presence rather than demanding attention.',
 ]
 
 const ziggyMethodologySteps: MethodologyStep[] = [
@@ -364,7 +364,7 @@ const ziggyDecisions: DecisionBlock[] = [
     title: 'Ambient-First Interaction (Not Voice-First)',
     why: 'Voice-only systems fail in noisy environments and feel transactional.',
     options: 'Voice-only assistant · Screen-dominant assistant · Hybrid ambient + voice + subtle visual cues',
-    finalSolution: 'Ziggy communicates through soft light pulses, micro-movements, and contextual visual indicators — voice becomes secondary, not primary.',
+    finalSolution: 'Ziggy communicates through soft light pulses, micro-movements, and contextual visual indicators; voice becomes secondary, not primary.',
     impact: 'Reduced interruption. Increased emotional warmth. Interaction becomes optional, not forced.',
     tradeOff: 'More design complexity in motion language and signal clarity.',
     imagePath: '/case-studies/ziggy/Z2.png',
@@ -463,6 +463,130 @@ export const ziggyCaseStudy: CaseStudyData = {
     statement: 'I ship clean, scalable UX that respects constraints and delivers measurable outcomes.',
     highlight: 'measurable outcomes.',
     primaryButton: { label: 'Download Case Study', href: '/case-studies/ziggy/Ziggy case study.pdf' },
+    secondaryButton: { label: 'Download Resume', href: '/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf' },
+  },
+}
+
+// ——— Psymatrix ———
+const psymatrixHeroSummary = [
+  'PsyMatrix is a live psychometric hiring SaaS platform designed to help organizations evaluate candidates using structured behavioral intelligence.',
+]
+
+const psymatrixMethodologySteps: MethodologyStep[] = [
+  { index: '01', title: 'Signal Translation', pillLabel: '01', description: 'Converted dense percentile scores into layered hiring signals, allowing HR teams to understand strengths, risks, and alignment instantly, without reading technical reports.' },
+  { index: '02', title: 'Interpretation Framework', pillLabel: '02', description: 'Mapped behavioral metrics into structured interpretation blocks, ensuring every trait translated into a practical hiring implication.' },
+  { index: '03', title: 'Comparative Logic', pillLabel: '03', description: 'Designed a consistent candidate comparison matrix so evaluation moved from intuition-based judgment to objective signal alignment.' },
+  { index: '04', title: 'Modular Insight Blocks', pillLabel: '04', description: 'Replaced long static reports with modular insight cards, enabling focused review instead of cognitive overload.' },
+  { index: '05', title: 'Scalable Architecture', pillLabel: '05', description: 'Structured the system so additional traits, roles, and benchmarks could be integrated without redesigning the interface, preserving clarity at scale.' },
+]
+
+const psymatrixDecisions: DecisionBlock[] = [
+  {
+    token: 'Decision 01',
+    title: 'Converting Raw Scores into Hiring Signals',
+    why: 'HR teams were overwhelmed by percentile charts and trait matrices. Scores lacked context, forcing manual interpretation and increasing bias.',
+    options: 'Show full raw psychometric reports · Add explanatory tooltips to trait scores · Simplify into high-level summary numbers · Build a structured interpretation layer',
+    finalSolution: 'Introduced a Hiring Signal Layer that categorized traits into: Strength Indicators, Risk Flags, Role Alignment Signals, and Confidence Scoring. Each metric was translated from numerical output into decision-ready insight blocks.',
+    impact: 'Reduced cognitive overload. Faster candidate evaluation cycles. Increased confidence in decision discussions. Clearer alignment between behavioral data and job requirements.',
+    tradeOff: 'Simplified abstraction required careful calibration to avoid oversimplification of nuanced psychological data.',
+    imagePath: '/case-studies/psymatrix/Psy%202.png',
+    imageAlt: 'PsyMatrix Hiring Signal Layer',
+  },
+  {
+    token: 'Decision 02',
+    title: 'Designing a Comparative Candidate Matrix',
+    why: 'Candidate comparison required switching between multiple reports and spreadsheets. This encouraged intuitive decision-making rather than structured evaluation.',
+    options: 'Exportable PDF comparison · Spreadsheet-style comparison tables · High-level ranking score · Structured side-by-side intelligence view',
+    finalSolution: 'Built a Side-by-Side Comparison Matrix with consistent evaluation dimensions: trait alignment, risk indicators, behavioral strengths, and role-fit scoring. All candidates were evaluated using identical logic structures.',
+    impact: 'Removed manual cross-referencing. Reduced bias-driven interpretation. Enabled structured hiring discussions. Made patterns visible across candidates.',
+    tradeOff: 'Maintaining equal weight display meant resisting dynamic ranking systems that could oversimplify complex evaluation.',
+    imagePath: '/case-studies/psymatrix/Psy%203.png',
+    imageAlt: 'PsyMatrix Side-by-Side Comparison Matrix',
+  },
+  {
+    token: 'Decision 03',
+    title: 'Merging Assessment Configuration & Candidate Intelligence',
+    why: 'Assessment setup felt technical and overwhelming. Candidate dashboards felt disconnected from role requirements. There was no structural link between Role Definition, Assessment Logic, and Candidate Output.',
+    options: 'Static configuration forms · Fully customizable scoring builder · Predefined role templates · Guided configuration with embedded intelligence',
+    finalSolution: 'Designed a unified system where Assessment Configuration directly shaped Candidate Intelligence output. HR teams could define role benchmarks, select relevant behavioral dimensions, set threshold logic, and establish weighting criteria. These settings dynamically structured candidate strength summaries, risk indicators, compatibility scoring, and confidence metrics. This created a closed-loop architecture.',
+    impact: 'Reduced onboarding friction. Made configuration meaningful, not procedural. Increased trust in evaluation outputs. Created system scalability for future role types. Eliminated disconnect between setup and decision.',
+    tradeOff: 'Balancing flexibility with guardrails required limiting extreme customization while preserving strategic control.',
+    imagePath: '/case-studies/psymatrix/Psy%204.png',
+    imageAlt: 'PsyMatrix unified configuration and intelligence',
+  },
+  {
+    token: 'Decision 04',
+    title: 'Designing the Candidate Intelligence Dashboard',
+    why: 'Most psychometric dashboards present data. Few support decisions. HR teams needed clarity, not charts.',
+    options: 'Data-heavy dashboard · Chart-first layout · Modular insight blocks with clear hierarchy · Minimal dashboard with progressive disclosure',
+    finalSolution: 'The dashboard was structured around modular insight blocks: Behavioral Strength Summaries, Risk Flags, Role Compatibility Scoring, and Confidence Indicators. Design logic: modular card system, clear visual hierarchy, progressive disclosure, contextual explanations, minimal cognitive friction. The dashboard prioritized interpretability over decoration.',
+    impact: 'Faster review cycles. Clearer hiring conversations. Reduced ambiguity in final decisions. Higher trust in system outputs.',
+    tradeOff: 'Avoided overly complex visualizations that could impress visually but reduce decision clarity.',
+    imagePath: '/case-studies/psymatrix/Psy%205.png',
+    imageAlt: 'PsyMatrix Candidate Intelligence Dashboard',
+  },
+]
+
+export const psymatrixCaseStudy: CaseStudyData = {
+  slug: 'psymatrix',
+  meta: {
+    title: 'PsyMatrix Case Study | Irfan Portfolio',
+    description: 'Architecting a production-ready psychometric hiring platform from the ground up. Sole Product Designer, full product architecture.',
+  },
+  hero: {
+    label: 'case study',
+    title: 'PsyMatrix',
+    subtitle: 'Architecting a production-ready psychometric hiring platform from the ground up',
+    summary: psymatrixHeroSummary,
+    meta: [
+      { label: 'Role', value: 'Sole Product Designer' },
+      { label: 'Ownership', value: 'Full product architecture, UX strategy, UI system' },
+      { label: 'Platform', value: 'Web SaaS (B2B HR Tech)' },
+      { label: 'Status', value: 'Live production product' },
+    ],
+    stats: [
+      { label: '—', value: 'Coming soon' },
+      { label: '—', value: 'Coming soon' },
+      { label: '—', value: 'Coming soon' },
+    ],
+  },
+  methodology: {
+    tag: 'Process Methodology',
+    heading: 'Architectural efficiency through intelligent integration',
+    highlight: 'intelligent integration',
+    description: 'A closer look at how I transformed complex psychometric scoring into a scalable hiring system, reducing ambiguity without sacrificing depth.',
+    subheading: 'How structured logic replaced raw data overload',
+    steps: psymatrixMethodologySteps,
+  },
+  decisions: {
+    heading: 'Decisions & Impact',
+    description: 'Strategic product decisions that transformed psychometric data into structured hiring intelligence.',
+    headerTag: undefined,
+    blocks: psymatrixDecisions,
+  },
+  screenGroups: [],
+  validationOutcome: {
+    validation: {
+      intro: 'What changed because of these decisions',
+      bullets: [
+        'PsyMatrix evolved from Psychometric Report System to Hiring Intelligence Platform.',
+        'Data became structured insight. Insight became decision support. Decision support became scalable architecture.',
+      ],
+    },
+    outcome: {
+      bullets: [
+        'Live, production-ready psychometric hiring platform',
+        'Structured end-to-end evaluation workflow',
+        'Reduced ambiguity in candidate comparison',
+        'Scalable architecture for future expansion',
+      ],
+      quote: 'PsyMatrix evolved from a behavioral assessment concept into an operational hiring intelligence system.',
+    },
+  },
+  closing: {
+    statement: 'I design for clarity and impact so products serve people well.',
+    highlight: 'impact',
+    primaryButton: { label: 'Download Case Study', href: '/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf' },
     secondaryButton: { label: 'Download Resume', href: '/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf' },
   },
 }

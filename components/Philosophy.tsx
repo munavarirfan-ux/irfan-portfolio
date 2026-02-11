@@ -20,7 +20,7 @@ const notes = [
   {
     id: 'structure',
     title: 'Structure is the soul',
-    body: 'Structure is the soul of great design. What users feel comes from what holds everything together. Clear structure creates confidence, flow, and trust — even when the product is complex. When structure is strong, interfaces disappear and experiences take over.',
+    body: 'Structure is the soul of great design. What users feel comes from what holds everything together. Clear structure creates confidence, flow, and trust, even when the product is complex. When structure is strong, interfaces disappear and experiences take over.',
     bg: 'bg-[#F0F9FF]',
     pattern: false,
     icon: 'lightbulb',

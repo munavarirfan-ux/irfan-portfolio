@@ -31,11 +31,12 @@ const workItems = [
     imagePath: '/case-studies/ziggy/Hero card ZIggy.png',
   },
   {
-    category: 'Community & Health',
+    category: 'B2B SaaS – Hiring & Assessment Platforms',
     title: 'Psymatrix',
-    description: 'Case study coming soon',
+    description: 'Architecting a production-ready psychometric hiring platform from the ground up',
     visual: 'psymatrix',
-    slug: null,
+    slug: 'psymatrix',
+    imagePath: '/case-studies/psymatrix/Hero%20card%20psymatrix.png',
   },
 ]
 

@@ -52,7 +52,7 @@ const bentoCards = [
     category: '05 / DETAIL',
     title: 'Craft',
     description:
-      'Precision in every interaction. We believe that excellence is found in the final five percent—the subtle details that define the user experience.',
+      'Precision in every interaction. We believe that excellence is found in the final five percent, the subtle details that define the user experience.',
     column: 'left' as const,
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80',
     size: 'large' as const,

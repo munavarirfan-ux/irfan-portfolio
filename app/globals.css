@@ -807,6 +807,14 @@ header .hero-resume-btn {
   color: transparent;
 }
 
+/* Process Methodology 3-line heading – gradient for "intelligent" and "integration" (red-pink → purple) */
+.methodology-title-gradient {
+  background: linear-gradient(90deg, #ff4561 0%, #e74d8a 50%, #ab47bc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* Black chalkboard card – textured surface, vignette, chalk-dust feel */
 .gradient-card {
   position: relative;

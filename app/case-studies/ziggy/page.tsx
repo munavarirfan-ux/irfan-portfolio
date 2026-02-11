@@ -89,13 +89,13 @@ export default function CaseStudyZiggyPage() {
             Background
           </h2>
           <p className="text-base md:text-lg text-[var(--cs-text)] leading-relaxed mb-6 font-sans">
-            Smart assistants today are reactive tools. They respond when spoken to — but rarely understand context, emotion, or environmental nuance.
+            Smart assistants today are reactive tools. They respond when spoken to, but rarely understand context, emotion, or environmental nuance.
           </p>
           <p className="text-base md:text-lg text-[var(--cs-text)] leading-relaxed mb-6 font-sans">
             Homes are dynamic spaces. Noise levels shift. Lighting changes. Multiple users coexist. Yet most assistants treat every moment the same.
           </p>
           <p className="text-base md:text-lg text-[var(--cs-text)] leading-relaxed mb-12 font-sans">
-            Ziggy was designed as a context-aware AI companion — one that adapts quietly to space, behavior, and presence rather than demanding attention.
+            Ziggy was designed as a context-aware AI companion, one that adapts quietly to space, behavior, and presence rather than demanding attention.
           </p>
 
           <h2 className="text-2xl sm:text-3xl md:text-[28px] font-bold leading-tight tracking-tight mb-4 font-sans">
