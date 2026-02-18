@@ -1,8 +1,8 @@
-import { psymatrixCaseStudy } from '@/lib/case-study-data'
+import { kerohireCaseStudy } from '@/lib/case-study-data'
 
 export const metadata = {
-  title: psymatrixCaseStudy.meta.title,
-  description: psymatrixCaseStudy.meta.description,
+  title: kerohireCaseStudy.meta.title,
+  description: kerohireCaseStudy.meta.description,
 }
 
 export default function KerohireCaseStudyLayout({

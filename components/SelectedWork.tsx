@@ -34,9 +34,9 @@ const workItems = [
     category: 'B2B Hiring OS · Web Platform',
     title: 'keroHire',
     description: 'Clarity in hiring. Confidence in decisions',
-    visual: 'psymatrix',
+    visual: 'kerohire',
     slug: 'kerohire',
-    imagePath: '/case-studies/Kerohire/Hero%20card%20psymatrix.png',
+    imagePath: '/case-studies/Kerohire/Hero%20card%20kerohire.png',
   },
 ]
 
