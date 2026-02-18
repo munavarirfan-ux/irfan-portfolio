@@ -36,7 +36,7 @@ const workItems = [
     description: 'Clarity in hiring. Confidence in decisions',
     visual: 'psymatrix',
     slug: 'psymatrix',
-    imagePath: '/case-studies/psymatrix/Hero%20card%20psymatrix.png',
+    imagePath: '/case-studies/Kerohire/Hero%20card%20psymatrix.png',
   },
 ]
 

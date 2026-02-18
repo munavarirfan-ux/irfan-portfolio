@@ -31,7 +31,7 @@ export default function CaseStudyPsymatrixPage() {
           <div className="relative overflow-hidden rounded-[24px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] bg-[var(--cs-bg)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/case-studies/psymatrix/Psy%201.png"
+              src="/case-studies/Kerohire/Psy%201.png"
               alt="keroHire – evidence-led hiring platform overview"
               className="block w-full h-auto object-cover object-top align-top"
             />

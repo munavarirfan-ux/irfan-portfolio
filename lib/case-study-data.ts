@@ -489,7 +489,7 @@ const kerohireDecisions: DecisionBlock[] = [
     finalSolution: 'Completely moved away from traditional psychometric scoring. Created the Evidence-Led Fit Model where every candidate interaction generates structured, traceable signals rather than subjective interpretations.',
     impact: 'Reduced false certainty. Aligned with real-world hiring behavior. Suitable for compliance-focused environments like Germany.',
     tradeOff: 'Required re-educating users from personality-fit to evidence-fit mindset.',
-    imagePath: '/case-studies/psymatrix/Psy%202.png',
+    imagePath: '/case-studies/Kerohire/Psy%202.png',
     imageAlt: 'keroHire Evidence Intelligence Overview and Work Signals',
   },
   {
@@ -500,7 +500,7 @@ const kerohireDecisions: DecisionBlock[] = [
     finalSolution: 'Introduced three dynamic evidence layers: Work Signals (role-based simulations), Communication Signals (interview + written reasoning), Reliability Signals (evidence gaps + trust indicators).',
     impact: 'Clearer decision rationale. Better alignment with recruiter mental models. Reduced bias through structure.',
     tradeOff: 'More complex configuration for evidence map definition per role.',
-    imagePath: '/case-studies/psymatrix/Psy%203.png',
+    imagePath: '/case-studies/Kerohire/Psy%203.png',
     imageAlt: 'keroHire evidence streams and Work Signals',
   },
   {
@@ -511,7 +511,7 @@ const kerohireDecisions: DecisionBlock[] = [
     finalSolution: 'Redesigned the pipeline so each candidate card communicates evidence coverage, signal strength, missing validation areas, and suggested next actions. Transformed the board into an intelligent decision support interface.',
     impact: 'Faster time-to-decision. Clearer hiring conversations. Pipeline became active guidance, not passive tracking.',
     tradeOff: 'Required consistent evidence data at each stage to avoid empty states.',
-    imagePath: '/case-studies/psymatrix/Psy%202.png',
+    imagePath: '/case-studies/Kerohire/Psy%202.png',
     imageAlt: 'keroHire Evidence-Driven Pipeline Board',
   },
   {
@@ -522,7 +522,7 @@ const kerohireDecisions: DecisionBlock[] = [
     finalSolution: 'Integrated transcription, structured summaries, timestamped evidence quotes, and auto-generated scorecards aligned with the Evidence Map. Fully editable by hiring teams.',
     impact: 'Improved consistency across interviewers. Reduced subjective bias. Better transparency and fairness.',
     tradeOff: 'Dependency on quality of transcription and summarization tools.',
-    imagePath: '/case-studies/psymatrix/Psy%204.png',
+    imagePath: '/case-studies/Kerohire/Psy%204.png',
     imageAlt: 'keroHire Interview Intelligence',
   },
   {
@@ -533,7 +533,7 @@ const kerohireDecisions: DecisionBlock[] = [
     finalSolution: 'Rather than definitive judgments, the system uses heuristic likelihood bands (Low / Medium / High), transparent reasoning indicators, and clear disclaimers (not proof, only signals). Suggested follow-up actions.',
     impact: 'Maintains trust. Addresses recruiter concern without overclaiming. Defensible and ethical.',
     tradeOff: 'Some recruiters may want a single "AI or not" answer; product resists that oversimplification.',
-    imagePath: '/case-studies/psymatrix/Psy%205.png',
+    imagePath: '/case-studies/Kerohire/Psy%205.png',
     imageAlt: 'keroHire Decision Intelligence Summary',
   },
 ]
@@ -599,7 +599,7 @@ export const psymatrixCaseStudy: CaseStudyData = {
   closing: {
     statement: 'Instead of automating hiring decisions, the system empowers humans with better, structured evidence.',
     highlight: 'structured evidence',
-    primaryButton: { label: 'Download Case Study', href: '/case-studies/psymatrix/PsyMatrix.pdf' },
+    primaryButton: { label: 'Download Case Study', href: '/case-studies/Kerohire/PsyMatrix.pdf' },
     secondaryButton: { label: 'Download Resume', href: '/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf' },
   },
 }
