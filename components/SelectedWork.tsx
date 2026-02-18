@@ -35,7 +35,7 @@ const workItems = [
     title: 'keroHire',
     description: 'Clarity in hiring. Confidence in decisions',
     visual: 'psymatrix',
-    slug: 'psymatrix',
+    slug: 'kerohire',
     imagePath: '/case-studies/Kerohire/Hero%20card%20psymatrix.png',
   },
 ]
