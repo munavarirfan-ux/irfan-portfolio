@@ -31,9 +31,9 @@ const workItems = [
     imagePath: '/case-studies/ziggy/Hero card ZIggy.png',
   },
   {
-    category: 'B2B SaaS – Hiring & Assessment Platforms',
-    title: 'Psymatrix',
-    description: 'Architecting a production-ready psychometric hiring platform from the ground up',
+    category: 'B2B Hiring OS · Web Platform',
+    title: 'keroHire',
+    description: 'Clarity in hiring. Confidence in decisions',
     visual: 'psymatrix',
     slug: 'psymatrix',
     imagePath: '/case-studies/psymatrix/Hero%20card%20psymatrix.png',

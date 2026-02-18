@@ -219,7 +219,7 @@ export const droparCaseStudy: CaseStudyData = {
   },
 }
 
-// ——— Ship the BIM ———
+// Ship the BIM
 const shipTheBimHeroSummary = [
   'Ship the BIM is a pre-submission validation tool for BIM workflows, combining AI explanation and fix pack automation.',
 ]
@@ -298,9 +298,9 @@ export const shipTheBimCaseStudy: CaseStudyData = {
       { label: 'Team', value: '05' },
     ],
     stats: [
-      { label: '—', value: 'Coming soon' },
-      { label: '—', value: 'Coming soon' },
-      { label: '—', value: 'Coming soon' },
+      { label: '-', value: 'Coming soon' },
+      { label: '-', value: 'Coming soon' },
+      { label: '-', value: 'Coming soon' },
     ],
   },
   methodology: {
@@ -346,7 +346,7 @@ export const shipTheBimCaseStudy: CaseStudyData = {
   },
 }
 
-// ——— Ziggy ———
+// Ziggy
 const ziggyHeroSummary = [
   'Ziggy was designed as a context-aware AI companion, one that adapts quietly to space, behavior, and presence rather than demanding attention.',
 ]
@@ -423,9 +423,9 @@ export const ziggyCaseStudy: CaseStudyData = {
       { label: 'Tools', value: 'Figma, 3D Modeling, Motion Prototyping, Research Interviews, System Mapping' },
     ],
     stats: [
-      { label: '—', value: 'Coming soon' },
-      { label: '—', value: 'Coming soon' },
-      { label: '—', value: 'Coming soon' },
+      { label: '-', value: 'Coming soon' },
+      { label: '-', value: 'Coming soon' },
+      { label: '-', value: 'Coming soon' },
     ],
   },
   methodology: {
@@ -467,126 +467,139 @@ export const ziggyCaseStudy: CaseStudyData = {
   },
 }
 
-// ——— Psymatrix ———
-const psymatrixHeroSummary = [
-  'PsyMatrix is a live psychometric hiring SaaS platform designed to help organizations evaluate candidates using structured behavioral intelligence.',
+// keroHire (case study route: psymatrix)
+const kerohireHeroSummary = [
+  'keroHire is an evidence-led hiring platform that replaces psychometrics with proof you can defend. B2B Hiring OS, concept to prototype in 4–6 weeks.',
 ]
 
-const psymatrixMethodologySteps: MethodologyStep[] = [
-  { index: '01', title: 'Signal Translation', pillLabel: '01', description: 'Converted dense percentile scores into layered hiring signals, allowing HR teams to understand strengths, risks, and alignment instantly, without reading technical reports.' },
-  { index: '02', title: 'Interpretation Framework', pillLabel: '02', description: 'Mapped behavioral metrics into structured interpretation blocks, ensuring every trait translated into a practical hiring implication.' },
-  { index: '03', title: 'Comparative Logic', pillLabel: '03', description: 'Designed a consistent candidate comparison matrix so evaluation moved from intuition-based judgment to objective signal alignment.' },
-  { index: '04', title: 'Modular Insight Blocks', pillLabel: '04', description: 'Replaced long static reports with modular insight cards, enabling focused review instead of cognitive overload.' },
-  { index: '05', title: 'Scalable Architecture', pillLabel: '05', description: 'Structured the system so additional traits, roles, and benchmarks could be integrated without redesigning the interface, preserving clarity at scale.' },
+const kerohireMethodologySteps: MethodologyStep[] = [
+  { index: '01', title: 'Evidence-Led Fit Model', pillLabel: '01', description: 'Three structured evidence streams: Work Signals (role-based simulations), Communication Signals (interview + written reasoning), Reliability Signals (evidence gaps + trust indicators).' },
+  { index: '02', title: 'Product Architecture', pillLabel: '02', description: 'Intelligent integration across hiring stages. Job Workspace (setup + pipeline) and Candidate Workspace (Evidence Report Hub) with Dashboard, Jobs, Applicants, Interviews, Reports.' },
+  { index: '03', title: 'Pipeline to Decision System', pillLabel: '03', description: 'Applicant pipeline board shows evidence progress per candidate: screening score, evidence coverage, interview status, stage position, and action triggers.' },
+  { index: '04', title: 'Interview Intelligence', pillLabel: '04', description: 'Transcribe, summarize, structure. Audio/video upload, automatic transcription, structured summaries, evidence quotes with timestamps, auto scorecards mapped to Evidence Map.' },
+  { index: '05', title: 'AI-Assisted Content Signals', pillLabel: '05', description: 'Heuristic likelihood bands (LOW / MED / HIGH), transparent reasoning, explicit disclaimers, suggested follow-up actions. Ethical and defensible evaluation.' },
 ]
 
-const psymatrixDecisions: DecisionBlock[] = [
+const kerohireDecisions: DecisionBlock[] = [
   {
     token: 'Decision 01',
-    title: 'Converting Raw Scores into Hiring Signals',
-    why: 'HR teams were overwhelmed by percentile charts and trait matrices. Scores lacked context, forcing manual interpretation and increasing bias.',
-    options: 'Show full raw psychometric reports · Add explanatory tooltips to trait scores · Simplify into high-level summary numbers · Build a structured interpretation layer',
-    finalSolution: 'Introduced a Hiring Signal Layer that categorized traits into: Strength Indicators, Risk Flags, Role Alignment Signals, and Confidence Scoring. Each metric was translated from numerical output into decision-ready insight blocks.',
-    impact: 'Reduced cognitive overload. Faster candidate evaluation cycles. Increased confidence in decision discussions. Clearer alignment between behavioral data and job requirements.',
-    tradeOff: 'Simplified abstraction required careful calibration to avoid oversimplification of nuanced psychological data.',
+    title: 'Designing for evidence, not impressions',
+    why: 'Most hiring platforms rely on personality labels and abstract scores that are difficult to defend in real hiring discussions. The system needed to answer: What actual evidence supports this hiring decision?',
+    options: 'Keep psychometric dashboards · Add evidence tags to existing scores · Build parallel evidence layer · Replace psychometrics with evidence streams',
+    finalSolution: 'Completely moved away from traditional psychometric scoring. Created the Evidence-Led Fit Model where every candidate interaction generates structured, traceable signals rather than subjective interpretations.',
+    impact: 'Reduced false certainty. Aligned with real-world hiring behavior. Suitable for compliance-focused environments like Germany.',
+    tradeOff: 'Required re-educating users from personality-fit to evidence-fit mindset.',
     imagePath: '/case-studies/psymatrix/Psy%202.png',
-    imageAlt: 'PsyMatrix Hiring Signal Layer',
+    imageAlt: 'keroHire Evidence Intelligence Overview and Work Signals',
   },
   {
     token: 'Decision 02',
-    title: 'Designing a Comparative Candidate Matrix',
-    why: 'Candidate comparison required switching between multiple reports and spreadsheets. This encouraged intuitive decision-making rather than structured evaluation.',
-    options: 'Exportable PDF comparison · Spreadsheet-style comparison tables · High-level ranking score · Structured side-by-side intelligence view',
-    finalSolution: 'Built a Side-by-Side Comparison Matrix with consistent evaluation dimensions: trait alignment, risk indicators, behavioral strengths, and role-fit scoring. All candidates were evaluated using identical logic structures.',
-    impact: 'Removed manual cross-referencing. Reduced bias-driven interpretation. Enabled structured hiring discussions. Made patterns visible across candidates.',
-    tradeOff: 'Maintaining equal weight display meant resisting dynamic ranking systems that could oversimplify complex evaluation.',
+    title: 'Replacing psychometrics with evidence streams',
+    why: 'Static personality dashboards do not support defensible decisions. Hiring teams need Work Signals, Communication Signals, and Reliability Signals instead of trait scores.',
+    options: 'Personality dashboards · Trait + evidence hybrid · Three evidence layers only',
+    finalSolution: 'Introduced three dynamic evidence layers: Work Signals (role-based simulations), Communication Signals (interview + written reasoning), Reliability Signals (evidence gaps + trust indicators).',
+    impact: 'Clearer decision rationale. Better alignment with recruiter mental models. Reduced bias through structure.',
+    tradeOff: 'More complex configuration for evidence map definition per role.',
     imagePath: '/case-studies/psymatrix/Psy%203.png',
-    imageAlt: 'PsyMatrix Side-by-Side Comparison Matrix',
+    imageAlt: 'keroHire evidence streams and Work Signals',
   },
   {
     token: 'Decision 03',
-    title: 'Merging Assessment Configuration & Candidate Intelligence',
-    why: 'Assessment setup felt technical and overwhelming. Candidate dashboards felt disconnected from role requirements. There was no structural link between Role Definition, Assessment Logic, and Candidate Output.',
-    options: 'Static configuration forms · Fully customizable scoring builder · Predefined role templates · Guided configuration with embedded intelligence',
-    finalSolution: 'Designed a unified system where Assessment Configuration directly shaped Candidate Intelligence output. HR teams could define role benchmarks, select relevant behavioral dimensions, set threshold logic, and establish weighting criteria. These settings dynamically structured candidate strength summaries, risk indicators, compatibility scoring, and confidence metrics. This created a closed-loop architecture.',
-    impact: 'Reduced onboarding friction. Made configuration meaningful, not procedural. Increased trust in evaluation outputs. Created system scalability for future role types. Eliminated disconnect between setup and decision.',
-    tradeOff: 'Balancing flexibility with guardrails required limiting extreme customization while preserving strategic control.',
-    imagePath: '/case-studies/psymatrix/Psy%204.png',
-    imageAlt: 'PsyMatrix unified configuration and intelligence',
+    title: 'Turning ATS from workflow tool into decision system',
+    why: 'Traditional ATS platforms optimize for stage movement, not decision clarity. Recruiters needed evidence coverage and next actions on the pipeline.',
+    options: 'Classic pipeline board · Analytics overlay · Evidence-driven candidate cards',
+    finalSolution: 'Redesigned the pipeline so each candidate card communicates evidence coverage, signal strength, missing validation areas, and suggested next actions. Transformed the board into an intelligent decision support interface.',
+    impact: 'Faster time-to-decision. Clearer hiring conversations. Pipeline became active guidance, not passive tracking.',
+    tradeOff: 'Required consistent evidence data at each stage to avoid empty states.',
+    imagePath: '/case-studies/psymatrix/Psy%202.png',
+    imageAlt: 'keroHire Evidence-Driven Pipeline Board',
   },
   {
     token: 'Decision 04',
-    title: 'Designing the Candidate Intelligence Dashboard',
-    why: 'Most psychometric dashboards present data. Few support decisions. HR teams needed clarity, not charts.',
-    options: 'Data-heavy dashboard · Chart-first layout · Modular insight blocks with clear hierarchy · Minimal dashboard with progressive disclosure',
-    finalSolution: 'The dashboard was structured around modular insight blocks: Behavioral Strength Summaries, Risk Flags, Role Compatibility Scoring, and Confidence Indicators. Design logic: modular card system, clear visual hierarchy, progressive disclosure, contextual explanations, minimal cognitive friction. The dashboard prioritized interpretability over decoration.',
-    impact: 'Faster review cycles. Clearer hiring conversations. Reduced ambiguity in final decisions. Higher trust in system outputs.',
-    tradeOff: 'Avoided overly complex visualizations that could impress visually but reduce decision clarity.',
+    title: 'Introducing Interview Intelligence as a core layer',
+    why: 'Interviews were treated as unstructured conversations. Inconsistent evaluation and subjective bias resulted.',
+    options: 'Manual notes only · External transcription · Integrated transcribe, summarize, structure',
+    finalSolution: 'Integrated transcription, structured summaries, timestamped evidence quotes, and auto-generated scorecards aligned with the Evidence Map. Fully editable by hiring teams.',
+    impact: 'Improved consistency across interviewers. Reduced subjective bias. Better transparency and fairness.',
+    tradeOff: 'Dependency on quality of transcription and summarization tools.',
+    imagePath: '/case-studies/psymatrix/Psy%204.png',
+    imageAlt: 'keroHire Interview Intelligence',
+  },
+  {
+    token: 'Decision 05',
+    title: 'Ethical approach to AI-assisted content',
+    why: 'With AI-generated applications, "AI detection" is often unreliable and ethically fraught. Recruiters still need signals without false certainty.',
+    options: 'No AI signals · Binary AI detection · Heuristic likelihood bands with disclaimers',
+    finalSolution: 'Rather than definitive judgments, the system uses heuristic likelihood bands (Low / Medium / High), transparent reasoning indicators, and clear disclaimers (not proof, only signals). Suggested follow-up actions.',
+    impact: 'Maintains trust. Addresses recruiter concern without overclaiming. Defensible and ethical.',
+    tradeOff: 'Some recruiters may want a single "AI or not" answer; product resists that oversimplification.',
     imagePath: '/case-studies/psymatrix/Psy%205.png',
-    imageAlt: 'PsyMatrix Candidate Intelligence Dashboard',
+    imageAlt: 'keroHire Decision Intelligence Summary',
   },
 ]
 
 export const psymatrixCaseStudy: CaseStudyData = {
   slug: 'psymatrix',
   meta: {
-    title: 'PsyMatrix Case Study | Irfan Portfolio',
-    description: 'Architecting a production-ready psychometric hiring platform from the ground up. Sole Product Designer, full product architecture.',
+    title: 'keroHire Case Study | Irfan Portfolio',
+    description: 'Clarity in hiring. Confidence in decisions. B2B Hiring OS, concept to prototype.',
   },
   hero: {
     label: 'case study',
-    title: 'PsyMatrix',
-    subtitle: 'Architecting a production-ready psychometric hiring platform from the ground up',
-    summary: psymatrixHeroSummary,
+    title: 'keroHire',
+    subtitle: 'Clarity in hiring. Confidence in decisions',
+    summary: kerohireHeroSummary,
     meta: [
-      { label: 'Role', value: 'Sole Product Designer' },
-      { label: 'Ownership', value: 'Full product architecture, UX strategy, UI system' },
-      { label: 'Platform', value: 'Web SaaS (B2B HR Tech)' },
-      { label: 'Status', value: 'Live production product' },
+      { label: 'Domain', value: 'B2B Hiring OS · Web Platform' },
+      { label: 'Scope', value: 'Concept to Prototype (4–6 weeks)' },
+      { label: 'Role', value: 'Product Designer' },
+      { label: 'Status', value: 'Concept inspired by a project I previously worked on called PsyHire.' },
     ],
     stats: [
-      { label: '—', value: 'Coming soon' },
-      { label: '—', value: 'Coming soon' },
-      { label: '—', value: 'Coming soon' },
+      { label: '-', value: 'Coming soon' },
+      { label: '-', value: 'Coming soon' },
+      { label: '-', value: 'Coming soon' },
     ],
   },
   methodology: {
     tag: 'Process Methodology',
     heading: 'Architectural efficiency through intelligent integration',
     highlight: 'intelligent integration',
-    description: 'A closer look at how I transformed complex psychometric scoring into a scalable hiring system, reducing ambiguity without sacrificing depth.',
-    subheading: 'How structured logic replaced raw data overload',
-    steps: psymatrixMethodologySteps,
+    description: 'How keroHire connects ATS workflow with decision intelligence across job setup, pipeline, and candidate evidence reports.',
+    subheading: 'Intelligent integration across hiring stages',
+    steps: kerohireMethodologySteps,
   },
   decisions: {
     heading: 'Decisions & Impact',
-    description: 'Strategic product decisions that transformed psychometric data into structured hiring intelligence.',
+    description: 'Designing for evidence, not impressions.',
     headerTag: undefined,
-    blocks: psymatrixDecisions,
+    blocks: kerohireDecisions,
   },
   screenGroups: [],
   validationOutcome: {
     validation: {
-      intro: 'What changed because of these decisions',
+      intro: 'Aligning with real recruiter mental models',
       bullets: [
-        'PsyMatrix evolved from Psychometric Report System to Hiring Intelligence Platform.',
-        'Data became structured insight. Insight became decision support. Decision support became scalable architecture.',
+        'Core interaction patterns based on how recruiters evaluate: compare profiles, look for proof, identify risks before final decisions.',
+        'Candidate Report Hub structured into tabbed evidence sections mirroring real hiring discussions.',
+        'Prioritized insight hierarchy (Evidence → Signals → Summary), progressive disclosure, structured narrative summaries to reduce cognitive load.',
       ],
     },
     outcome: {
       bullets: [
-        'Live, production-ready psychometric hiring platform',
-        'Structured end-to-end evaluation workflow',
-        'Reduced ambiguity in candidate comparison',
-        'Scalable architecture for future expansion',
+        'More consistent hiring decisions',
+        'Reduced bias through structured evaluation',
+        'Stronger documentation for German hiring contexts',
+        'Future-proof system for AI-influenced applications',
+        'Higher recruiter confidence in final decisions',
       ],
-      quote: 'PsyMatrix evolved from a behavioral assessment concept into an operational hiring intelligence system.',
+      quote: 'keroHire is not just an ATS redesign. It is a shift in hiring philosophy, from personality speculation to evidence-backed decision making. The system empowers humans with better, structured evidence.',
     },
   },
   closing: {
-    statement: 'I design for clarity and impact so products serve people well.',
-    highlight: 'impact',
-    primaryButton: { label: 'Download Case Study', href: '/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf' },
+    statement: 'Instead of automating hiring decisions, the system empowers humans with better, structured evidence.',
+    highlight: 'structured evidence',
+    primaryButton: { label: 'Download Case Study', href: '/case-studies/psymatrix/PsyMatrix.pdf' },
     secondaryButton: { label: 'Download Resume', href: '/Resume/Munavar%20Irfan%20Alisha_Product%20Design_Resume.pdf' },
   },
 }
