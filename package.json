@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0",
+    "dev:webpack": "next dev --hostname 0.0.0.0 --webpack",
+    "dev:open": "ulimit -n 10240 && next dev --hostname 0.0.0.0",
     "ip": "node -e \"var os=require('os'); var i=os.networkInterfaces(); Object.keys(i).forEach(function(n){ i[n].forEach(function(x){ if(x.family==='IPv4' && !x.internal) console.log(x.address); }); });\"",
     "build": "next build",
     "start": "next start",
